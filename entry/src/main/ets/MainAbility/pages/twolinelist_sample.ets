@@ -1,26 +1,33 @@
 import prompt from '@system.prompt';
-import { Twoline_list, Twolinelistitems }  from '@ohos/Material_Lists'
+import {  TwoLineListGroup, TwoLineListModel, TwoLineListItems, CommonGroupModel,ListType}  from '@ohos/material_lists'
 @Entry
 @Component
 struct Index {
-  List_items: Twolinelistitems[] = [
+  aboutToAppear(){
+    //this. model_TwoListGroup.setListLeadingContentImageSize({height:'200vp',width:'200vp'})
 
-    new Twolinelistitems($r('app.media.pencil'), "Pencil", 'only three are  left in the stock','$4.5' ),
-    new Twolinelistitems($r('app.media.bat'), "Bat", 'in stock', $r('app.media.ball')),
-    new Twolinelistitems($r('app.media.gloves'), "Gloves", 'in stock', '$10.5'),
-    new Twolinelistitems($r('app.media.ruler'), "Ruler", 'in stock-5% discount','$4.5'),
-    new Twolinelistitems($r('app.media.clock'), "Clock", 'in stock', '$30.5'),
-    new Twolinelistitems($r('app.media.furniture'), "Eatables", 'price according to item selected', $r('app.media.baverages')),
-    new Twolinelistitems($r('app.media.toothpaste'), "Colgate", 'in stock', '$15.5'),
-    new Twolinelistitems($r('app.media.brush'), "Brush", 'in stock',null ),
-    new Twolinelistitems($r('app.media.bottle'), "Bottle", 'in stock', '$35')
-
+  }
+  model_TwoListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.DoubleListGroup)
+  private List_items: TwoLineListItems[] = [
+    new TwoLineListItems($r('app.media.bat'), "Bat", 'in stock', '$20.5',function ab(){ AlertDialog.show({ message: 'You clicked BAT' })}),
+    new TwoLineListItems($r('app.media.gloves'), "Gloves", 'in stock', '$10.5', function ab(){ AlertDialog.show({ message: 'You clicked GLOVES' })}),
+    new TwoLineListItems($r('app.media.ruler'), "Ruler", 'in stock-5% discount','$4.5',function ab(){ AlertDialog.show({ message: 'You clicked RULER' })}),
+    new TwoLineListItems($r('app.media.clock'), "Clock", 'in stock', '$30.5',function ab(){ AlertDialog.show({ message: 'You clicked CLOCK' })}),
+    new TwoLineListItems($r('app.media.furniture'), "Eatables", 'price according to item selected', '$30.5',function ab(){ AlertDialog.show({ message: 'You clicked EATABLES' })}),
+    new TwoLineListItems($r('app.media.toothpaste'), "Colgate", 'in stock', '$15.5',function ab(){ AlertDialog.show({ message: 'You clicked COLGATE' })}),
+    new TwoLineListItems($r('app.media.brush'), "Brush", 'in stock','$25.5',function ab(){ AlertDialog.show({ message: 'You clicked BRUSH' })} ),
+    new TwoLineListItems($r('app.media.bottle'), "Bottle", 'in stock', '$35',function ab(){ AlertDialog.show({ message: 'You clicked BOTTLE' })})
   ]
-  build(){
+  build() {
     Column() {
-      Twoline_list({
-        arri: this.List_items
+      TwoLineListGroup({
+        models: this.model_TwoListGroup,
+        options: this.List_items,
       })
     }
-}
   }
+}
+
+
+
+

@@ -11,21 +11,5 @@
     ]
   },
   "modules": [
-    {
-      "name": "entry",
-      "srcPath": "./entry",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": [
-            "default"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Material_Lists",
-      "srcPath": "./Material_Lists"
-    }
   ]
 }

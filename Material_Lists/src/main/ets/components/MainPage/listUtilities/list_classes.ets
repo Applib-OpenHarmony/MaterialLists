@@ -13,28 +13,27 @@
  * limitations under the License.
  */
 
-import {SingleLineListOptions ,TwoLineListOptions, ThreeLineListOptions} from './list-interfaces'
-export class SingleLineListItems  implements SingleLineListOptions {
+export class SingleLineListItems {
   leadingContent:  string | Resource
   mainData: string
   trailingContent: Resource | string
   callback:Function
-  constructor(options:SingleLineListOptions) {
-    this.leadingContent=options.leadingContent;
-    this.mainData=options.mainData;
-    this.trailingContent =options.trailingContent;
-    this.callback = options.callback;
+  constructor(leadingContent:  string | Resource,mainData: string,trailingContent: Resource | string,callback:Function) {
+    this.leadingContent=leadingContent;
+    this.mainData=mainData;
+    this.trailingContent =trailingContent;
+    this.callback = callback;
   }
 }
 
 export class TwoLineListItems  extends SingleLineListItems{
   subData:string
-  constructor(options:TwoLineListOptions) {
-    super(options);
-    this.subData = options.subData
+  constructor(leadingContent:  string | Resource,mainData: string,subData:string,trailingContent: Resource | string,callback:Function) {
+    super(leadingContent,mainData,trailingContent,callback);
+    this.subData =subData
   }
 }
-/*
+
 export class ThreeLineListItems extends TwoLineListItems{
   secondarySubData: string
   constructor(leadingContent:  string | Resource,mainData: string,subData:string,secondarySubData:string,trailingContent: Resource | string,callback:Function) {
@@ -49,7 +48,7 @@ export class  NestedListItems  extends ThreeLineListItems{
   }
 
 }
-*/
+
 
 
 

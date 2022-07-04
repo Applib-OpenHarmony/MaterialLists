@@ -13,26 +13,30 @@
  * limitations under the License.
  */
 
-import { TwoLineListModel } from './listmodels';
-import { TwoLineListItems } from './list_classes';
-import {ripple} from './Ripple';
+import { TwoLineListModel } from './listModels/listmodels';
+import { TwoLineListItems } from './listUtilities/list_classes';
+import { ripple } from './animation/Ripple';
+import { CommonGroupModel } from './listModels/common_group_model'
+import {CommonProperties} from  './listUtilities/list_common_properties'
 @Entry
 @Component
 export struct TwoLineListGroup {
-@State private options: TwoLineListItems [] = [
-  new TwoLineListItems($r('app.media.icon'), "Bat", 'in stock', $r('app.media.icon'),function ab(){console.log('1');}),
-    new TwoLineListItems($r('app.media.icon'), "Ben", 'in stock there', $r('app.media.icon'),function ab(){console.log('1');})
-  ]
+  @State models: CommonGroupModel.Model = undefined
+  @State showDivider: boolean = true
+  @State show_ripple: boolean = true;
+  @State private options: TwoLineListItems [] = []
   @State private selectedListLabel: number = -1
-  private onCheckChange: ((mainData: number)=>void) = null
+  private onCheckChange: ((mainData: number) => void) = null
+
   aboutToAppear() {
     if (this.options == undefined) {
       this.options = []
     }
     if (this.selectedListLabel == null) {
-      this.selectedListLabel =-1
+      this.selectedListLabel = -1
     }
   }
+
   build() {
     Column() {
       List() {
@@ -41,7 +45,8 @@ export struct TwoLineListGroup {
           (item) => {
             ListItem() {
               TwoLineList_Item({
-                model: new TwoLineListModel( item.leadingContent,item.mainData,item.subData,item.trailingContent,item.callback),
+                model: new TwoLineListModel(item.leadingContent, item.mainData, item.subData, item.trailingContent, item.callback),
+                model2: $models,
                 checked: item.mainData == this.selectedListLabel,
                 onCheckChange: (mainData) => {
                   this.selectedListLabel = mainData
@@ -54,26 +59,28 @@ export struct TwoLineListGroup {
           },
           item => item.mainData
         )
-      }.divider({ strokeWidth: 1.4, color: Color.Black })
+      }
+      .divider({ strokeWidth:  this.models.getDividerStrokeWidth(), color: this.models.getDividerColor() })
+      .visibility((this.models.getDivider() == true) ? Visibility.Visible : Visibility.Hidden)
     }
   }
 }
 
 @Component
 export struct TwoLineList_Item {
-  @State private showRipple: boolean = false
+  @State  showRipple: boolean = false
   @State model: TwoLineListModel = undefined
-  private onCheckChange: ((mainData: number) => void) = null
-  @State checked: boolean = false
+  @Link model2: CommonGroupModel.Model
+  @State checked :boolean =false
   @State private clickCoordinates: Position = { x: 0, y: 0 }
-  rippleColor: ResourceColor = Color.Gray
-  @State private containerSize: SizeOptions = { width: 360, height: 108 }
+  @State private rippleColor:ResourceColor=Color.Gray
+  private onCheckChange: ((mainData: number) => void) = null
+  @State containerSize:SizeOptions ={height:'110vp',width:'350vp'}
   aboutToAppear() {
     if (this.model == undefined) return
   }
-  onClick: (event?: ClickEvent) => void = (event) => {
-    console.log('list item was clicked')
-  }
+
+  onClick: (event?: ClickEvent) => void
 
   build() {
     if (this.model != undefined && this.model.buildUI()) {
@@ -82,73 +89,90 @@ export struct TwoLineList_Item {
           if (this.model.getListTrailingImage() === true) {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListLeadingContent()).objectFit(ImageFit.Cover).width(60).height(70);
-              }.width(80).height(90).padding(10);
+                Image(this.model.getListLeadingContent())
+                  .objectFit(ImageFit.Cover)
+                  .size(this.model2.getListLeadingContentImageSize())
+
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(37).fontWeight(FontWeight.Bold)
+                  Text(this.model.getListLabel())
+                    .fontSize(this.model2.getListMainDataSize())
+                    .fontWeight(this.model2.getListMainDataFontWeight())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(22)
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                }.alignItems(HorizontalAlign.Start).padding({ right: 15 })
-              }.width(210).height(70);
+                }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListTrailingContent()).objectFit(ImageFit.Cover).width(30).height(30);
-              }.padding(5);
+                Image(this.model.getListTrailingContent())
+                  .objectFit(ImageFit.Cover)
+                  .size(this.model2.getListTrailingContentImageSize());
+              }.padding('5vp');
               ripple({
-                size: $containerSize,
                 rippleStartPosition: $clickCoordinates,
+                size:$containerSize,
                 showRipple: $showRipple,
-                color: this.rippleColor,
+                rippleColor : $rippleColor
               })
-            }.size(this.model.getListContainerSize());
+            }
           }
           else {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListLeadingContent()).objectFit(ImageFit.Cover).width(60).height(70);
-              }.width(80).height(90).padding(10);
+                Image(this.model.getListLeadingContent())
+                  .objectFit(ImageFit.Cover)
+                  .size(this.model2.getListLeadingContentImageSize());
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model.getLeadingRightSpace());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(37).fontWeight(FontWeight.Bold)
+                  Text(this.model.getListLabel())
+                    .fontSize(this.model2.getListMainDataSize())
+                    .fontWeight(this.model2.getListMainDataFontWeight())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(22)
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                }.alignItems(HorizontalAlign.Start).padding({ right: 15 })
-              }.width(190).height(70);
+                }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListTrailingContent()).fontSize(30);
-              }.padding({ right: 5 });
+                Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize());
+              }.padding({ right: '5vp' });
               ripple({
-                size: $containerSize,
                 rippleStartPosition: $clickCoordinates,
+                size:$containerSize,
                 showRipple: $showRipple,
-                color: this.rippleColor,
+                rippleColor : $rippleColor
               })
-            }.size(this.model.getListContainerSize());
+            }//.size(this.model2.getListContainerSize());
           }
         }
-      }
+      }.size(this.model2.getListContainerSize())
+      .onClick((event) => {
 
-          .onClick((event) => {
-
-            this.clickCoordinates = {
-              x: event.x,
-              y: event.y
-            }
-            this.showRipple = true
-            setTimeout(() => {
-            }, 300)
-          })
+        this.clickCoordinates = {
+          x: event.x,
+          y: event.y
         }
-
-      }
+        this.containerSize = this.model2.getListContainerSize();
+        this.showRipple =  this.model2.getRippleAnimation()
+        this.rippleColor=this.model2.getRippleColor()
+        if (this.onClick) {
+          setTimeout(() => {
+            this.onClick(event)
+          }, 300)
+        }
+        var listItemFunction = this.model.getListFunction()
+        if (listItemFunction != null)
+        listItemFunction()
+      })
     }
+  }
+}
 
+export { TwoLineListModel } from './listModels/listmodels';
 
-export { TwoLineListModel } from './listmodels';
-export { TwoLineListItems } from './list_classes';
+export { TwoLineListItems } from './listUtilities/list_classes' ;

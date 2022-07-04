@@ -1,31 +1,23 @@
 import prompt from '@system.prompt';
-import { Nestedlistitems, Nested_list }  from '@ohos/Material_Lists'
+import { NestedListGroup,NestedListItems,CommonGroupModel,ListType }  from '@ohos/material_lists'
 @Entry
 @Component
 struct Index {
-  List_items: Nestedlistitems[] = [
-    new Nestedlistitems($r('app.media.google'), "Search Engine", 'Google',null),
-    new Nestedlistitems(null, "Privacy", null,null),
-    new Nestedlistitems($r('app.media.mic'), "Voice Search", 'English(US)',null),
-    new Nestedlistitems(null, "When Device is Locked", 'Show all Notification Content',$r('app.media.tick')),
-    new Nestedlistitems($r('app.media.clock'), " Start Time", '10:00 AM','24hrs'),
-
-  ]
-  Advanced_List_items: Nestedlistitems[] = [
-    new Nestedlistitems($r('app.media.battery'), "Battery Saver ", 'Charge less than 10%',null),
-    new Nestedlistitems($r('app.media.game'), "Gaming Mode", 'When any game is opened',null),
-    new Nestedlistitems(null, "Privacy", null,null),
-    new Nestedlistitems(null, "Encryption", 'upadte available',null),
-    new Nestedlistitems(null, "Passwords are Saved", null,$r('app.media.tick')),
-    new Nestedlistitems($r('app.media.bin'), "Clear Cache", null,null),
+  model_NestedListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.NestedListGroup)
+  List_items: NestedListItems[] = [
+    new NestedListItems(  $r('app.media.rahul'),"Meeting",'Lets meet this evening for discussion of project' ,'Rahul', '01',function ab(){ AlertDialog.show({ message: 'You clicked PROJECT' })}),
+    new NestedListItems($r('app.media.google'), "Search Engine",'Google',null,null,function ab(){ AlertDialog.show({ message: 'You clicked GOOGLE' })}),
+    new NestedListItems(null, "Privacy",null, null,null,function ab(){ AlertDialog.show({ message: 'You clicked PRIVACY' })}),
+    new NestedListItems($r('app.media.mic'), "Voice Search", 'US','English',null,function ab(){ AlertDialog.show({ message: 'You clicked mic' })}),
+    new NestedListItems(null, "When Device is Locked", 'Show all Notification Content',null,'tick',function ab(){ AlertDialog.show({ message: 'You clicked Device' })}),
+    new NestedListItems($r('app.media.clock'), " Start Time", '10:00 AM',null,'24hrs',function ab(){ AlertDialog.show({ message: 'You clicked Clock' })}),
   ]
   build(){
     Column() {
-      Nested_list({
-        arri: this.List_items,
-        arr : this.Advanced_List_items
-
+      NestedListGroup({
+         models:this.model_NestedListGroup,
+        options: this.List_items,
       })
     }
-}
   }
+}

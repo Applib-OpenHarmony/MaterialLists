@@ -12,8 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export enum ListType {
-  isSingle,
-  isDouble,
 
+export enum ListType {
+  SingleListGroup,
+  DoubleListGroup,
+  TripleListGroup,
+  NestedListGroup
 }

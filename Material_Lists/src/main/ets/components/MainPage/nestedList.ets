@@ -13,18 +13,22 @@
  * limitations under the License.
  */
 
-import { ThreeLineListModel } from './listmodels';
+import { ThreeLineListModel } from './listModels/listmodels';
 import { ThreeLineList_Item } from './tripleLineList';
-import { TwoLineListModel } from './listmodels';
+import { TwoLineListModel } from './listModels/listmodels';
 import {TwoLineList_Item}  from './twoLineList'
-import { SingleLineListModel } from './listmodels';
+import { SingleLineListModel } from './listModels/listmodels';
 import {SingleLineList_item}  from './singleLineList'
-import { ThreeLineListItems,SingleLineListItems,NestedListItems } from './list_classes';
-
-import {ripple} from './Ripple';
+import { CommonGroupModel } from './listModels/common_group_model'
+import { NestedListItems } from './listUtilities/list_classes';
+import {ripple} from './animation/Ripple'
+import {CommonProperties} from  './listUtilities/list_common_properties'
 @Entry
 @Component
-export struct ThreeLineListGroup {
+export struct NestedListGroup {
+  @State models: CommonGroupModel.Model = undefined
+  @State show_ripple : boolean = false
+  @State showDivider: boolean = true
   @State private options: NestedListItems [] = [
   ]
   @State private selectedListLabel: number = -1
@@ -46,7 +50,7 @@ export struct ThreeLineListGroup {
             ListItem() {
             if (item.secondarySubData === null && item.subData===null){
               SingleLineList_item({
-
+                model2:$models,
                 model: new SingleLineListModel( item.leadingContent,item.mainData,item.trailingContent,item.callback),
                 checked: item.mainData == this.selectedListLabel,
                 onCheckChange: (mainData) => {
@@ -61,6 +65,7 @@ export struct ThreeLineListGroup {
              else  if (item.secondarySubData === null && item.subData!=null) {
                 TwoLineList_Item({
                   model: new TwoLineListModel( item.leadingContent,item.mainData,item.subData,item.trailingContent,item.callback),
+                  model2:$models,
                   checked: item.mainData == this.selectedListLabel,
                   onCheckChange: (mainData) => {
                     this.selectedListLabel = mainData
@@ -73,6 +78,7 @@ export struct ThreeLineListGroup {
               else {
                 ThreeLineList_Item({
                   model: new ThreeLineListModel(item.leadingContent, item.mainData, item.subData, item.secondarySubData, item.trailingContent, item.callback),
+                  model2:$models,
                   checked: item.mainData == this.selectedListLabel,
                   onCheckChange: (mainData) => {
                     this.selectedListLabel = mainData
@@ -87,17 +93,18 @@ export struct ThreeLineListGroup {
           },
           item => item.mainData
         )
-      }.divider({ strokeWidth: 1.4, color: Color.Black })
+      }.divider({ strokeWidth:  this.models.getDividerStrokeWidth(), color: this.models.getDividerColor() })
+      .visibility((this.models.getDivider() == true) ? Visibility.Visible : Visibility.Hidden)
     }
   }
 }
 
 
 
-export { ThreeLineListModel } from './listmodels';
+export { ThreeLineListModel } from './listModels/listmodels';
 export { ThreeLineList_Item } from './tripleLineList';
 export {TwoLineList_Item} from './twoLineList'
-export { TwoLineListModel } from './listmodels';
-export{ SingleLineListModel } from './listmodels';
+export { TwoLineListModel } from './listModels/listmodels';
+export{ SingleLineListModel } from './listModels/listmodels';
 export {SingleLineList_item}  from './singleLineList'
-export { ThreeLineListItems,SingleLineListItems,NestedListItems } from './list_classes';
+export { ThreeLineListItems,SingleLineListItems,NestedListItems } from './listUtilities/list_classes';
