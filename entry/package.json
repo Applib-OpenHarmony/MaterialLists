@@ -10,6 +10,6 @@
   "repository": {},
   "license": "ISC",
   "dependencies": {
-    "@ohos/material_lists": "file:../material-lists"
+    "@ohos/material-lists": "file:../material-lists"
   }
 }

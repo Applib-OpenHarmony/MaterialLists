@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2022 Application Library Engineering Group.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import prompt from '@system.prompt';
 import { SingleLineListItems, SingleLineListGroup,CommonGroupModel,ListType }  from '@ohos/material-lists'
 
@@ -7,12 +21,8 @@ struct Index {
   model_SingleListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.SingleListGroup)
      show : boolean = true
   aboutToAppear(){
-    //this.model_SingleListGroup.setListMainDataSize('100vp')
   }
   List_items: SingleLineListItems[] = [
-    new SingleLineListItems($r('app.media.dining'), "Dining", $r('app.media.food'), function a() {
-      AlertDialog.show({ message: 'You clicked BAT' })
-    }),
     new SingleLineListItems($r('app.media.education'), "Education", $r('app.media.book'), function a() {
       AlertDialog.show({ message: 'You clicked Education' })
     }),
