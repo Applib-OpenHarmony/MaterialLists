@@ -37,26 +37,8 @@ export class SingleLineListModel extends CommonProperties {
   buildUI(): boolean {
     return (this.mainData != null && this.mainData != "")
   }
-
   getListLabel(): string  {
     return this.mainData
-  }
-
-  setListLabel(Data: string): SingleLineListModel{
-    this.mainData = (Data != null && Data != undefined) ? Data : ''
-    return this
-  }
-
-  getListTrailingImage(): boolean {
-    return (typeof this.trailingContent === 'string' || this.trailingContent instanceof String) ? false : true
-  }
-
-  getIsTrailingIconPresent(): boolean{
-    return (this.getListTrailingContent() != null) ? true : false
-  }
-
-  getIsLeadingIconPresent(): boolean{
-    return (this.getListLeadingContent() != null) ? true : false
   }
 
   getListFunction(): Function{

@@ -32,14 +32,19 @@ const DEFAULT_TRAILING_BORDER_RADIUS: string = '1vp'
 const DEFAULT_ITEM_SPACES_SIZE: string = '0vp'
 const DEFAULT_TRAILING_IMAGE_SIZE: SizeOptions = { width: '40vp', height: '40vp' }
 const DEFAULT_SUB_DATA_SIZE: string = '22vp'
-const DEFAULT_SUB_DATA_FONT_WEIGHT:string='20vp'
-const DEFAULT_MAIN_DATA_FONT_WEIGHT:string='25vp'
+const DEFAULT_SUB_DATA_FONT_WEIGHT:FontWeight=FontWeight.Regular
+const DEFAULT_MAIN_DATA_FONT_WEIGHT:FontWeight=FontWeight.Medium
 const DEFAULT_RIPPLE_ANIMATION:boolean = true
 const DEFAULT_RIPPLE_COLOR:string='#808080'
 const DEFAULT_DIVIDER_VISIBILITY:boolean=true
-const DEFAULT_DIVIDER_STROKE_WIDTH:number=1.4
+const DEFAULT_DIVIDER_STROKE_WIDTH:number=2.4
 const DEFAULT_DIVIDER_COLOR:string=' #000000'
 const DEFAULT_TOP_SPACE :string = '10vp'
+const DEFAULT_MAIN_DATA_FONT_COLOR:string =' #000000'
+const DEFAULT_BACKGROUND_COLOR:string='#FFFFFF'
+const DEFAULT_SUB_DATA_FONT_COLOR:string ='#000000'
+const DEFAULT_MAIN_DATA_FONT_STYLE : FontStyle =FontStyle.Normal
+const DEFAULT_SUB_DATA_FONT_STYLE :FontStyle =FontStyle.Normal
 export class CommonProperties {
   protected listLeadingContainerSize: SizeOptions = DEFAULT_LEADING_CONTAINER_SIZE
   protected listLeadingContentImageSize: SizeOptions= DEFAULT_LEADING_IMAGE_SIZE
@@ -62,14 +67,42 @@ export class CommonProperties {
   protected isTrailingContentImage: boolean = false
   protected listSubDataSize: string = DEFAULT_SUB_DATA_SIZE
   protected groupListType: ListType = DEFAULT_LIST_TYPE
-  protected listSubDtaFontWeight:string =DEFAULT_SUB_DATA_FONT_WEIGHT
+  protected listSubDtaFontWeight:FontWeight =DEFAULT_SUB_DATA_FONT_WEIGHT
   protected rippleColor:string= DEFAULT_RIPPLE_COLOR
   protected rippleAnimation:boolean = DEFAULT_RIPPLE_ANIMATION
   protected dividerStrokeWidth:number=DEFAULT_DIVIDER_STROKE_WIDTH
   protected dividerColor:string =DEFAULT_DIVIDER_COLOR
   protected dividerVisible:boolean=DEFAULT_DIVIDER_VISIBILITY
-  protected  listMainDataFontWeight:string = DEFAULT_MAIN_DATA_FONT_WEIGHT
+  protected  listMainDataFontWeight:FontWeight = DEFAULT_MAIN_DATA_FONT_WEIGHT
   protected topSpace :string = DEFAULT_TOP_SPACE
+  protected mainDataFontColor: string =DEFAULT_MAIN_DATA_FONT_COLOR
+  protected backGroundColor:string = DEFAULT_BACKGROUND_COLOR
+  protected subDataFontColor : string = DEFAULT_SUB_DATA_FONT_COLOR
+  protected mainDataFontStyle : FontStyle =DEFAULT_MAIN_DATA_FONT_STYLE
+  protected subDataFontStyle :FontStyle  = DEFAULT_SUB_DATA_FONT_STYLE
+  getBackGroundColor(){
+return this.backGroundColor
+  }
+  setBackGroundColor(BackGroundColor:string):CommonProperties{
+    this.backGroundColor = (BackGroundColor != null && BackGroundColor != undefined) ? BackGroundColor : DEFAULT_BACKGROUND_COLOR
+    return this
+
+  }
+  getMainDataFontStyle(){
+    return this.mainDataFontStyle
+  }
+  setMainDataFontStyle(MainDataFontStyle:FontStyle){
+    this.mainDataFontStyle = (MainDataFontStyle != null && MainDataFontStyle != undefined) ? MainDataFontStyle : DEFAULT_MAIN_DATA_FONT_STYLE
+    return this
+  }
+  getSubDataFontStyle(){
+    return this.subDataFontStyle
+  }
+  setSubDataFontStyle(SubDataFontStyle:FontStyle){
+    this.subDataFontStyle = (SubDataFontStyle != null && SubDataFontStyle != undefined) ? SubDataFontStyle : DEFAULT_SUB_DATA_FONT_STYLE
+    return this
+
+  }
 
   getDividerStrokeWidth():number{
     return this.dividerStrokeWidth
@@ -79,6 +112,20 @@ export class CommonProperties {
   }
   getDivider():boolean{
     return this.dividerVisible
+  }
+  getListMainDataFontColor():string{
+    return this.mainDataFontColor
+  }
+  setListSubDataFontColor(SubDataFontColor:  string):CommonProperties{
+    this.subDataFontColor = (SubDataFontColor != null && SubDataFontColor != undefined) ? SubDataFontColor : DEFAULT_SUB_DATA_FONT_COLOR
+    return this
+  }
+  getListSubDataFontColor():string{
+    return this.subDataFontColor
+  }
+  setListMainDataFontColor(MainDataFontColor:  string):CommonProperties{
+    this.mainDataFontColor = (MainDataFontColor != null && MainDataFontColor != undefined) ? MainDataFontColor : DEFAULT_MAIN_DATA_FONT_COLOR
+    return this
   }
   setDividerStrokeWidth(StrokeWidth:number):CommonProperties{
     if (StrokeWidth < 0) {
@@ -184,7 +231,6 @@ export class CommonProperties {
     this.listLeadingContentTextSize = (LeadContent != null && LeadContent != undefined) ? LeadContent : DEFAULT_LEADING_CONTENT_TEXT_SIZE
     return this
   }
-
   getListLeadingContainerSize(): SizeOptions{
     return this.listLeadingContainerSize
   }
@@ -286,10 +332,10 @@ export class CommonProperties {
   getListItemsSpace(): string{
     return this.listItemsSpace
   }
-  getListSubDataFontWeight():string{
+  getListSubDataFontWeight():FontWeight{
     return this.listSubDtaFontWeight
   }
-  setListSubDataFontWeight(SubDtaFontWeight:string):CommonProperties{
+  setListSubDataFontWeight(SubDtaFontWeight:FontWeight):CommonProperties{
     if (SubDtaFontWeight[0]==='-') {
       throw new Error("Invalid size. Please provide a  valid input")
     }
@@ -297,11 +343,11 @@ export class CommonProperties {
     return this
 
   }
-  getListMainDataFontWeight():string{
+  getListMainDataFontWeight():FontWeight{
     return this.listMainDataFontWeight
   }
-  setListMainDataFontWeight(MainDtaFontWeight:string):CommonProperties{
-    if (MainDtaFontWeight[0]==='-') {
+  setListMainDataFontWeight(MainDtaFontWeight:FontWeight):CommonProperties{
+    if (MainDtaFontWeight<0) {
       throw new Error("Invalid size. Please provide a  valid input")
     }
     this.listMainDataFontWeight = (MainDtaFontWeight != null && MainDtaFontWeight != undefined) ? MainDtaFontWeight : DEFAULT_MAIN_DATA_FONT_WEIGHT

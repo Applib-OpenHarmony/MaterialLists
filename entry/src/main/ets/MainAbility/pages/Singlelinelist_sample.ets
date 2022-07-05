@@ -21,6 +21,8 @@ struct Index {
   model_SingleListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.SingleListGroup)
      show : boolean = true
   aboutToAppear(){
+    this.model_SingleListGroup.setBackGroundColor('#000000')
+    this.model_SingleListGroup.setListMainDataFontColor('#FFFFFF')
   }
   List_items: SingleLineListItems[] = [
     new SingleLineListItems($r('app.media.education'), "Education", $r('app.media.book'), function a() {
@@ -29,7 +31,7 @@ struct Index {
     new SingleLineListItems($r('app.media.health'), "Health", $r('app.media.heart'), function a() {
       AlertDialog.show({ message: 'You clicked Health' })
     }),
-    new SingleLineListItems($r('app.media.family'), "Family", $r('app.media.icon2'), function a() {
+    new SingleLineListItems($r('app.media.family'), "Family", $r('app.media.icon'), function a() {
       AlertDialog.show({ message: 'You clicked Family' })
     }),
     new SingleLineListItems($r('app.media.office'), "Office", $r('app.media.imp'), function a() {

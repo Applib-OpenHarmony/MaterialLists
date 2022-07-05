@@ -42,9 +42,10 @@ namespace CommonGroupModel {
       this.setListLeadingRightSpace(sizeSpecs[listGroupType].leadingRightSpace)
       this.setListItemsSpace(sizeSpecs[listGroupType].listItemsSpace)
       this.setListSubDataSize('22fp')
-      this.setListSubDataFontWeight('20vp')
+      this.setListSubDataFontWeight(FontWeight.Regular)
       this.setListMainDataFontWeight(sizeSpecs[listGroupType].listMainDataWeight)
       this.setSpaceOnTop('18vp')
+      this.setListMainDataFontColor('#000000')
     }
     setGroupListType(listGroupType: ListType): Model {
       if (listGroupType != ListType.SingleListGroup && listGroupType != ListType.DoubleListGroup && listGroupType != ListType.TripleListGroup && listGroupType != ListType.NestedListGroup) {

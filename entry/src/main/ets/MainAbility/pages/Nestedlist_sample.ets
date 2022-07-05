@@ -17,14 +17,22 @@ import { NestedListGroup,NestedListItems,CommonGroupModel,ListType }  from '@oho
 @Entry
 @Component
 struct Index {
+  aboutToAppear(){
+    this.model_NestedListGroup.setRippleColor('#FFC0CB')
+    this.model_NestedListGroup.setListMainDataSize('32vp')
+    this.model_NestedListGroup.setMainDataFontStyle(FontStyle.Italic)
+  }
   model_NestedListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.NestedListGroup)
   List_items: NestedListItems[] = [
     new NestedListItems(  $r('app.media.rahul'),"Meeting",'Lets meet this evening for discussion of project' ,'Rahul', '01',function ab(){ AlertDialog.show({ message: 'You clicked PROJECT' })}),
     new NestedListItems($r('app.media.google'), "Search Engine",'Google',null,null,function ab(){ AlertDialog.show({ message: 'You clicked GOOGLE' })}),
-    new NestedListItems(null, "Privacy",null, null,null,function ab(){ AlertDialog.show({ message: 'You clicked PRIVACY' })}),
     new NestedListItems($r('app.media.mic'), "Voice Search", 'US','English',null,function ab(){ AlertDialog.show({ message: 'You clicked mic' })}),
-    new NestedListItems(null, "When Device is Locked", 'Show all Notification Content',null,null,function ab(){ AlertDialog.show({ message: 'You clicked Device' })}),
-    new NestedListItems($r('app.media.clock'), " Start Time", '10:00 AM',null,'24hrs',function ab(){ AlertDialog.show({ message: 'You clicked Clock' })}),
+    new NestedListItems($r('app.media.clock'), " Clock", '10:00 AM',null,'24hrs',function ab(){ AlertDialog.show({ message: 'You clicked Clock' })}),
+    new NestedListItems($r('app.media.maps'), " Gmaps", '20m','Turn left after',$r('app.media.direction'),function ab(){ AlertDialog.show({ message: 'You clicked Google Maps' })}),
+    new NestedListItems($r('app.media.recorder'), " Recorder", '2min 30secs',null,'00:01',function ab(){ AlertDialog.show({ message: 'You clicked Recorder' })}),
+    new NestedListItems($r('app.media.camera'), " Camera", null,null,null,function ab(){ AlertDialog.show({ message: 'You clicked Camera' })}),
+    new NestedListItems($r('app.media.battery'), " Battery", '30%',null,$r('app.media.charging'),function ab(){ AlertDialog.show({ message: 'You clicked Charging' })}),
+    new NestedListItems(null, "Privacy",null, null,null,function ab(){ AlertDialog.show({ message: 'You clicked PRIVACY' })}),
   ]
   build(){
     Column() {

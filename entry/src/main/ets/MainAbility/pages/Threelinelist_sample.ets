@@ -18,7 +18,7 @@ import { ThreeLineListItems, ThreeLineListGroup, CommonGroupModel,ListType,}  fr
 @Component
 struct Index {
   aboutToAppear(){
-    //this.model_ThreeListGroup.setListContainerSize({width:'350vp',height:'200vp'})
+    this.model_ThreeListGroup.setDividerColor('#0000FF')
   }
   model_ThreeListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.TripleListGroup)
   List_items: ThreeLineListItems[] = [

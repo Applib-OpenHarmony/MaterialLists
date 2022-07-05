@@ -28,7 +28,7 @@ export var sizeSpecs: {
   trailingContainerSize: SizeOptions,
   trailingContentBorderRadius: string,
   listItemsSpace: string
-  listMainDataWeight:string
+  listMainDataWeight: FontWeight
 
 
 }[] = [
@@ -37,70 +37,70 @@ export var sizeSpecs: {
     leadingContainerSize: { width: '70vp', height: '70vp' },
     leadingContentImageSize: { width: '59vp', height: '50vp' },
     leadingContentBorderRadius: '1vp',
-    leadingContentTextSize: '24fp',
+    leadingContentTextSize: '22fp',
     leadingRightSpace: '5vp',
     dataContainerSize: { width: '220vp', height: '50vp' },
-    mainDataSize: '30fp',
+    mainDataSize: '27fp',
     dataRightSpace: '15vp',
     trailingContentImageSize: { width: '35vp', height: '35vp' },
-    trailingContentTextSize: '24fp',
+    trailingContentTextSize: '22fp',
     trailingContainerSize: { width: '50vp', height: '50vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '7vp',
-    listMainDataWeight:'25vp'
+    listMainDataWeight:FontWeight.Medium
 
+  },
+  {
+    containerSize: { width: '360vp', height: '100vp' },
+    leadingContainerSize: { width: '80vp', height: '90vp' },
+    leadingContentImageSize: { width: '60vp', height: '70vp' },
+    leadingContentBorderRadius: '1vp',
+    leadingContentTextSize: '22fp',
+    leadingRightSpace: '10vp',
+    dataContainerSize: { width: '200vp', height: '70vp' },
+    mainDataSize: '27fp',
+    dataRightSpace: '15vp',
+    trailingContentImageSize: { width: '35vp', height: '35vp' },
+    trailingContentTextSize: '22fp',
+    trailingContainerSize: { width: '40vp', height: '40vp' },
+    trailingContentBorderRadius: '1vp',
+    listItemsSpace: '0vp',
+    listMainDataWeight:FontWeight.Medium
   },
   {
     containerSize: { width: '360vp', height: '108vp' },
     leadingContainerSize: { width: '80vp', height: '90vp' },
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
-    leadingContentTextSize: '25fp',
-    leadingRightSpace: '10vp',
-    dataContainerSize: { width: '190vp', height: '70vp' },
-    mainDataSize: '37fp',
-    dataRightSpace: '15vp',
-    trailingContentImageSize: { width: '35vp', height: '35vp' },
-    trailingContentTextSize: '30fp',
-    trailingContainerSize: { width: '40vp', height: '40vp' },
-    trailingContentBorderRadius: '1vp',
-    listItemsSpace: '0vp',
-    listMainDataWeight:'25vp'
-  },
-  {
-    containerSize: { width: '350vp', height: '108vp' },
-    leadingContainerSize: { width: '80vp', height: '90vp' },
-    leadingContentImageSize: { width: '60vp', height: '70vp' },
-    leadingContentBorderRadius: '1vp',
-    leadingContentTextSize: '25fp',
+    leadingContentTextSize: '22fp',
     leadingRightSpace: '10vp',
     dataContainerSize: { width: '210vp', height: '70vp' },
-    mainDataSize: '35fp',
+    mainDataSize: '27fp',
     dataRightSpace: '15vp',
     trailingContentImageSize: { width: '45vp', height: '45vp' },
-    trailingContentTextSize: '30fp',
+    trailingContentTextSize: '22fp',
     trailingContainerSize: { width: '45vp', height: '45vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '0vp',
-    listMainDataWeight:'25vp'
+    listMainDataWeight:FontWeight.Medium
   },
 
   {
-    containerSize: { width: '350vp', height: '100vp' },
+    containerSize: { width: '360vp', height: '100vp' },
     leadingContainerSize: { width: '80vp', height: '90vp' },
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
-    leadingContentTextSize: '25fp',
+    leadingContentTextSize: '22fp',
     leadingRightSpace: '10vp',
     dataContainerSize: { width: '190vp', height: '70vp' },
-    mainDataSize: '37fp',
+    mainDataSize: '28fp',
     dataRightSpace: '15vp',
     trailingContentImageSize: { width: '35vp', height: '35vp' },
-    trailingContentTextSize: '30fp',
+    trailingContentTextSize: '22fp',
     trailingContainerSize: { width: '40vp', height: '40vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '0vp',
-    listMainDataWeight:'25vp'
+    listMainDataWeight:FontWeight.Medium
   },
 
 ]

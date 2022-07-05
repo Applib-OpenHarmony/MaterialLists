@@ -91,7 +91,7 @@ export struct ThreeLineList_Item {
   private onCheckChange: ((mainData: number) => void) = null
   @State checked: boolean = false
   @State private clickCoordinates: Position = { x: 0, y: 0 }
-  @State private rippleColor:ResourceColor=Color.Gray
+  @State private rippleColor:string='#808080'
   @State private containerSize: SizeOptions = { width: 360, height: 20 }
   onClick: (event?: ClickEvent) => void = (event) => {
     console.log('list item was clicked')
@@ -112,11 +112,11 @@ export struct ThreeLineList_Item {
               }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
 
-                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize())
+                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                       .maxLines(2)
 
@@ -140,10 +140,10 @@ export struct ThreeLineList_Item {
               }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                      Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize())
+                      Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle()).fontWeight(this.model2.getListSubDataFontWeight())
 
                         .textOverflow({ overflow: TextOverflow.Ellipsis })
                         .maxLines(2)
@@ -151,7 +151,7 @@ export struct ThreeLineList_Item {
                 }.alignItems(HorizontalAlign.Start).padding({ right:this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize());
+                Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize()).fontWeight(this.model2.getListSubDataFontWeight());
               }.padding({ right: '5vp' });
               ripple({
                 rippleStartPosition: $clickCoordinates,
@@ -168,11 +168,11 @@ export struct ThreeLineList_Item {
               }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
 
-                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize())
+                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(2)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
@@ -196,14 +196,12 @@ export struct ThreeLineList_Item {
               }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-
-                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize())
+                  Text(this.model.getListSecondarySubData()+'-'+this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(2)
-
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
@@ -219,7 +217,7 @@ export struct ThreeLineList_Item {
           }
         }
 
-   }
+   }.backgroundColor(this.model2.getBackGroundColor())
       .onClick((event) => {
         this.clickCoordinates = {
           x: event.x,

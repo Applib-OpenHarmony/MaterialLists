@@ -73,7 +73,7 @@ export struct TwoLineList_Item {
   @Link model2: CommonGroupModel.Model
   @State checked :boolean =false
   @State private clickCoordinates: Position = { x: 0, y: 0 }
-  @State private rippleColor:ResourceColor=Color.Gray
+  @State private rippleColor:string='#808080'
   private onCheckChange: ((mainData: number) => void) = null
   @State containerSize:SizeOptions ={height:'110vp',width:'350vp'}
   aboutToAppear() {
@@ -89,27 +89,22 @@ export struct TwoLineList_Item {
           if (this.model.getIsLeadingContentImage() === true && this.model.getIsTrailingContentImage() == true) {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListLeadingContent())
-                  .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListLeadingContentImageSize())
-
-              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace());
+                Image(this.model.getListLeadingContent()).objectFit(ImageFit.Cover).size(this.model2.getListLeadingContentImageSize());
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel())
-                    .fontSize(this.model2.getListMainDataSize())
-                    .fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
+
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
+
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListTrailingContent())
-                  .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListTrailingContentImageSize());
+                Image(this.model.getListTrailingContent()).objectFit(ImageFit.Cover).size(this.model2.getListTrailingContentImageSize());
               }.padding('5vp');
               ripple({
                 rippleStartPosition: $clickCoordinates,
@@ -117,26 +112,24 @@ export struct TwoLineList_Item {
                 showRipple: $showRipple,
                 animationColor : $rippleColor
               })
-            }
+            }.size(this.model2.getListContainerSize());
           }
-          else if(this.model.getIsLeadingContentImage() === true &&this.model.getIsTrailingContentImage() == false) {
+          else if(this.model.getIsLeadingContentImage() === true && this.model.getIsTrailingContentImage() == false){
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListLeadingContent())
-                  .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListLeadingContentImageSize());
-              }.size(this.model2.getListLeadingContainerSize()).padding(this.model.getLeadingRightSpace());
+                Image(this.model.getListLeadingContent()).objectFit(ImageFit.Cover).size(this.model2.getListLeadingContentImageSize());
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel())
-                    .fontSize(this.model2.getListMainDataSize())
-                    .fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontStyle(this.model2.getSubDataFontStyle()).fontColor(this.model2.getListMainDataFontColor())
+                    .fontColor(this.model2.getListSubDataFontColor())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
+
+                }.alignItems(HorizontalAlign.Start).padding({ right:this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize());
@@ -147,30 +140,26 @@ export struct TwoLineList_Item {
                 showRipple: $showRipple,
                 animationColor : $rippleColor
               })
-            }
+            }.size(this.model2.getListContainerSize());
           }
           else if(this.model.getIsLeadingContentImage() === false && this.model.getIsTrailingContentImage() == true){
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent())
-                  .fontSize(this.model2.getListLeadingContentTextSize())
-              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace());
+                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize());
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel())
-                    .fontSize(this.model2.getListMainDataSize())
-                    .fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
+
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Image(this.model.getListTrailingContent())
-                  .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListTrailingContentImageSize());
+                Image(this.model.getListTrailingContent()).objectFit(ImageFit.Cover).size(this.model2.getListTrailingContentImageSize());
               }.padding('5vp');
               ripple({
                 rippleStartPosition: $clickCoordinates,
@@ -178,30 +167,28 @@ export struct TwoLineList_Item {
                 showRipple: $showRipple,
                 animationColor : $rippleColor
               })
-            }
+            }.size(this.model2.getListContainerSize());
+
           }
-          else{
+          else {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent())
-                  .fontSize(this.model2.getListLeadingContentTextSize())
-
-              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace());
+                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize());
+              }.size(this.model2.getListLeadingContainerSize()).padding(this.model2.getLeadingRightSpace ());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
-                  Text(this.model.getListLabel())
-                    .fontSize(this.model2.getListMainDataSize())
-                    .fontWeight(this.model2.getListMainDataFontWeight())
+                  Text(this.model.getListLabel()).fontSize(this.model2.getListMainDataSize()).fontWeight(this.model2.getListMainDataFontWeight()).fontColor(this.model2.getListMainDataFontColor()).fontStyle(this.model2.getMainDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
-                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight())
+
+                  Text(this.model.getListSubData()).fontSize(this.model2.getListSubDataSize()).fontWeight(this.model2.getListSubDataFontWeight()).fontColor(this.model2.getListSubDataFontColor()).fontStyle(this.model2.getSubDataFontStyle())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
+
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListTrailingContent())
-                  .fontSize(this.model2.getListTrailingContentTextSize());
+                Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize());
               }.padding('5vp');
               ripple({
                 rippleStartPosition: $clickCoordinates,
@@ -209,11 +196,11 @@ export struct TwoLineList_Item {
                 showRipple: $showRipple,
                 animationColor : $rippleColor
               })
-            }
-
+            }.size(this.model2.getListContainerSize());
           }
         }
-      }.size(this.model2.getListContainerSize())
+
+      }.backgroundColor(this.model2.getBackGroundColor())
       .onClick((event) => {
 
         this.clickCoordinates = {

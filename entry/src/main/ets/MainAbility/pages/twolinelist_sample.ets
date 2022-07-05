@@ -18,7 +18,8 @@ import {  TwoLineListGroup, TwoLineListModel, TwoLineListItems, CommonGroupModel
 @Component
 struct Index {
   aboutToAppear(){
-    //this. model_TwoListGroup.setListLeadingContentImageSize({height:'200vp',width:'200vp'})
+    this. model_TwoListGroup.setListMainDataFontColor('#0000FF')
+    this. model_TwoListGroup.setListSubDataFontColor('#808080')
 
   }
   model_TwoListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.DoubleListGroup)
