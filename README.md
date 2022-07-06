@@ -13,7 +13,7 @@ import {SingleLineListItems, SingleLineListGroup, TwoLineListGroup,TwoLineListIt
 ```
 ## Screenshots
  ![single-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296416-e8e33c0c-20a1-421f-81c9-2539b67ae1c1.gif)
- ![two-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296538-b3896532-7087-4ca9-835a-a50a3068aec8.gif)<br/>
+ ![double-line-list-demo](https://user-images.githubusercontent.com/105175305/177506365-3ed43f01-f541-46c4-8db4-25690c6a5b4f.gif)<br/>
 ![three-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296676-e88fc9e7-58f7-41c0-90c8-34ab3d30c66f.gif)
 ![nested-List-Demo](https://user-images.githubusercontent.com/105175305/177296725-6979b031-9c80-49bd-8d0c-512005012ef4.gif)
 
