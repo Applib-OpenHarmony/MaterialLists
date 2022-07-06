@@ -15,7 +15,7 @@
 
 import { ListType } from '../listUtilities/listTypes'
 import { sizeSpecs } from '../listUtilities/sizeSpecs'
-import {CommonProperties} from '../listUtilities/list_common_properties'
+import { CommonProperties } from '../listUtilities/list_common_properties'
 
 namespace CommonGroupModel {
   const DEFAULT_LIST_TYPE: ListType = ListType.NestedListGroup
@@ -29,12 +29,12 @@ namespace CommonGroupModel {
     private setListSpecs(listGroupType: ListType): void {
       this.setTrailingImageBorderRadius(sizeSpecs[listGroupType].trailingContentBorderRadius)
       this.setLeadingImageBorderRadius(sizeSpecs[listGroupType].leadingContentBorderRadius)
-     this.setListLeadingContentImageSize( sizeSpecs[listGroupType].leadingContentImageSize )
+      this.setListLeadingContentImageSize(sizeSpecs[listGroupType].leadingContentImageSize)
       this.setListLeadingContentTextSize(sizeSpecs[listGroupType].leadingContentTextSize)
       this.setListLeadingContainerSize(sizeSpecs[listGroupType].leadingContainerSize)
       this.setListTrailingContainerSize(sizeSpecs[listGroupType].trailingContainerSize)
-     this.setListTrailingContentTextSize( sizeSpecs[listGroupType].trailingContentTextSize)
-      this.setListTrailingContentImageSize( sizeSpecs[listGroupType].trailingContentImageSize)
+      this.setListTrailingContentTextSize(sizeSpecs[listGroupType].trailingContentTextSize)
+      this.setListTrailingContentImageSize(sizeSpecs[listGroupType].trailingContentImageSize)
       this.setListContainerSize(sizeSpecs[listGroupType].containerSize)
       this.setListMainDataSize(sizeSpecs[listGroupType].mainDataSize)
       this.setListDataContainerSize(sizeSpecs[listGroupType].dataContainerSize)
@@ -62,4 +62,5 @@ namespace CommonGroupModel {
     }
   }
 }
-export{CommonGroupModel}
+
+export { CommonGroupModel }

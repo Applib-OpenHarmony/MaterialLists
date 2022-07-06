@@ -40,30 +40,24 @@ export class SingleLineListModel extends CommonProperties {
   getListLabel(): string  {
     return this.mainData
   }
-
   getListFunction(): Function{
     return this.callback
   }
   getListType(): boolean{
     return (this.subData === null) ? true : false
   }
-
   getListTrailingContent(): string | Resource {
     return this.trailingContent
   }
-
   getListLeadingContent(): string | Resource {
     return this.leadingContent
   }
-
   getIsTrailingContentImage(): boolean{
-    return (typeof this.getListTrailingContent() === 'string' || this.getListTrailingContent() instanceof String)?false:true
+    return (typeof this.getListTrailingContent() === 'string' || this.getListTrailingContent() instanceof String) ? false : true
   }
-
   getIsLeadingContentImage(): boolean{
-    return (typeof this.getListLeadingContent() === 'string' || this.getListLeadingContent() instanceof String)?false:true
+    return (typeof this.getListLeadingContent() === 'string' || this.getListLeadingContent() instanceof String) ? false : true
   }
-
 }
 
 export class TwoLineListModel extends SingleLineListModel {
@@ -72,7 +66,6 @@ export class TwoLineListModel extends SingleLineListModel {
     super(leadingContent, mainData, trailingContent, callback);
     this.subData = subData
   }
-
   getListSubData(): string{
     return this.subData
   }
@@ -84,7 +77,6 @@ export class ThreeLineListModel extends TwoLineListModel {
     super(leadingContent, mainData, subData, trailingContent, callback)
     this.secondarySubData = secondarySubData
   }
-
   getListSecondarySubData(): string{
     return this.secondarySubData
   }

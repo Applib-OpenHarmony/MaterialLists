@@ -25,6 +25,7 @@ export struct SingleLineListGroup {
   @State models: CommonGroupModel.Model = undefined
   @State private options: SingleLineListItems [] = []
   @State private selectedListLabel: number = -1
+  @State private selectedListLead: string | Resource= "-1"
   private onCheckChange: ((mainData: number) => void) = null
 
   aboutToAppear() {
@@ -46,7 +47,7 @@ export struct SingleLineListGroup {
               SingleLineList_item({
                 model2: $models,
                 model: new SingleLineListModel(item.leadingContent, item.mainData, item.trailingContent, item.callback),
-                checked: item.mainData == this.selectedListLabel,
+                checked: (item.mainData == this.selectedListLabel),
                 onCheckChange: (mainData) => {
                   this.selectedListLabel = mainData
                   if (this.onCheckChange != null) {
@@ -56,7 +57,6 @@ export struct SingleLineListGroup {
               })
             }
           },
-          item => item.mainData
         )
       }.divider({ strokeWidth: this.models.getDividerStrokeWidth(), color: this.models.getDividerColor() })
       .visibility((this.models.getDivider() == true) ? Visibility.Visible : Visibility.Hidden)
@@ -108,7 +108,6 @@ export struct SingleLineList_item {
                   .size(this.model2.getListTrailingContentImageSize())
                   .borderRadius(this.model2.getTrailingImageBorderRadius());
               }.size(this.model2.getListTrailingContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
-
               ripple({
                 rippleStartPosition: $clickCoordinates,
                 size: $containerSize,
@@ -183,7 +182,6 @@ export struct SingleLineList_item {
                 animationColor: $rippleColor
               })
             }
-
           }
           else if (this.model.getIsLeadingContentImage() == false && this.model.getIsTrailingContentImage() == false) {
             Flex({ alignItems: ItemAlign.Center }) {
@@ -217,7 +215,6 @@ export struct SingleLineList_item {
             }
           }
         }
-
       }.backgroundColor(this.model2.getBackGroundColor()).size(this.model2.getListContainerSize())
       .onClick((event) => {
         this.clickCoordinates = {
@@ -232,7 +229,7 @@ export struct SingleLineList_item {
         }, 300)
         var listItemFunction = this.model.getListFunction()
         if (listItemFunction != null)
-            listItemFunction()
+           listItemFunction()
       }
       )
     }

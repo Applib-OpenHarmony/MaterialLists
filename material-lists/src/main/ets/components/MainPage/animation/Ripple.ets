@@ -14,19 +14,20 @@
  */
 
 
-import  {CommonGroupModel} from '../listModels/common_group_model'
-import {CommonProperties} from '../listUtilities/list_common_properties'
+import  { CommonGroupModel } from '../listModels/common_group_model'
+import { CommonProperties } from '../listUtilities/list_common_properties'
+
 @Component
 export struct ripple {
-  rippleDuration : number = 300
-  unbounded : boolean = false
+  rippleDuration: number = 300
+  unbounded: boolean = false
   private rippleSize: number = 10
   private opacity: number = 0.4
   @State private rippleX: number = 0
   @State private rippleY: number = 0
   @State private rippleScale: number = 0
   @Link showRipple: boolean
-  @Link size:SizeOptions
+  @Link size: SizeOptions
   @Link animationColor: string
   static lenToNum(value: Length): number {
     return parseFloat(value.toString())
@@ -36,7 +37,7 @@ export struct ripple {
     y: number
   }
   private ripple_animation() {
-    this.rippleX = this.rippleStartPosition.x -   (this.rippleSize) / 2
+    this.rippleX = this.rippleStartPosition.x - (this.rippleSize) / 2
     this.rippleY = this.rippleStartPosition.y - (this.rippleSize) / 2
     animateTo({
       duration: this.rippleDuration,
@@ -47,9 +48,10 @@ export struct ripple {
       }
     },
       () => {
-        this.rippleScale = Math.ceil(Math.sqrt(Math.pow(ripple.lenToNum(this.size.width), 2) + Math.pow(ripple.lenToNum(this.size.height), 2)) * 2 /(this.rippleSize))
+        this.rippleScale = Math.ceil(Math.sqrt(Math.pow(ripple.lenToNum(this.size.width), 2) + Math.pow(ripple.lenToNum(this.size.height), 2)) * 2 / (this.rippleSize))
       })
   }
+
   build() {
     if (this.showRipple) {
       Flex() {
@@ -62,13 +64,13 @@ export struct ripple {
           .scale({
             x: this.rippleScale,
             y: this.rippleScale,
-            centerX:(this.rippleSize) / 2,
+            centerX: (this.rippleSize) / 2,
             centerY: (this.rippleSize) / 2
           })
       }
       .clip(!this.unbounded)
       .size(this.size)
-      .position({ x:0,y:0 })
+      .position({ x: 0, y: 0 })
       .zIndex(2)
       .onAppear(() => {
         this.ripple_animation()

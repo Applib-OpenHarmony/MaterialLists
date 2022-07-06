@@ -52,7 +52,7 @@ export var sizeSpecs: {
   },
   {
     containerSize: { width: '360vp', height: '100vp' },
-    leadingContainerSize: { width: '80vp', height: '90vp' },
+    leadingContainerSize: { width: '80vp', height: '88vp' },
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
