@@ -39,12 +39,11 @@ namespace CommonGroupModel {
       this.setListMainDataSize(sizeSpecs[listGroupType].mainDataSize)
       this.setListDataContainerSize(sizeSpecs[listGroupType].dataContainerSize)
       this.setListDataRightSpace(sizeSpecs[listGroupType].dataRightSpace)
-      this.setListLeadingRightSpace(sizeSpecs[listGroupType].leadingRightSpace)
       this.setListItemsSpace(sizeSpecs[listGroupType].listItemsSpace)
       this.setListSubDataSize('22fp')
       this.setListSubDataFontWeight(FontWeight.Regular)
       this.setListMainDataFontWeight(sizeSpecs[listGroupType].listMainDataWeight)
-      this.setSpaceOnTop('18vp')
+      this.setSpaceOnTop(sizeSpecs[listGroupType].listTopSpace)
       this.setListMainDataFontColor('#000000')
     }
     setGroupListType(listGroupType: ListType): Model {

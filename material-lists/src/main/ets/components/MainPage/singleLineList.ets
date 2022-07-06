@@ -88,19 +88,20 @@ export struct SingleLineList_item {
                   .objectFit(ImageFit.Cover)
                   .size(this.model2.getListLeadingContentImageSize())
                   .borderRadius(this.model2.getLeadingImageBorderRadius())
-                  .padding({ left: '10vp' });
+                  .padding({ left: '10vp' })
               }
-              .padding(this.model2.getLeadingRightSpace())
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLabel())
-                  .fontStyle(this.model2.getMainDataFontStyle())
-                  .fontColor(this.model2.getListMainDataFontColor())
-                  .fontSize(this.model2.getListMainDataSize())
-                  .fontWeight(this.model2.getListMainDataFontWeight())
-                  .textOverflow({ overflow: TextOverflow.Ellipsis })
-                  .maxLines(1)
+                Column() {
+                  Text(this.model.getListLabel())
+                    .fontStyle(this.model2.getMainDataFontStyle())
+                    .fontColor(this.model2.getListMainDataFontColor())
+                    .fontSize(this.model2.getListMainDataSize())
+                    .fontWeight(this.model2.getListMainDataFontWeight())
+                    .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    .maxLines(1)
+                }.padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListTrailingContent())
@@ -115,7 +116,6 @@ export struct SingleLineList_item {
                 animationColor: $rippleColor
               })
             }
-
           }
           else if (this.model.getIsLeadingContentImage() == true && this.model.getIsTrailingContentImage() == false) {
             Flex({ alignItems: ItemAlign.Center }) {
@@ -126,17 +126,18 @@ export struct SingleLineList_item {
                   .borderRadius(this.model2.getLeadingImageBorderRadius())
                   .padding({ left: '10vp' });
               }
-              .padding(this.model2.getLeadingRightSpace())
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLabel())
-                  .fontStyle(this.model2.getMainDataFontStyle())
-                  .fontSize(this.model2.getListMainDataSize())
-                  .fontWeight(this.model2.getListMainDataFontWeight())
-                  .fontColor(this.model2.getListMainDataFontColor())
-                  .textOverflow({ overflow: TextOverflow.Ellipsis })
-                  .maxLines(1)
+                Column() {
+                  Text(this.model.getListLabel())
+                    .fontStyle(this.model2.getMainDataFontStyle())
+                    .fontSize(this.model2.getListMainDataSize())
+                    .fontWeight(this.model2.getListMainDataFontWeight())
+                    .fontColor(this.model2.getListMainDataFontColor())
+                    .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    .maxLines(1)
+                }.padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
                 Text(this.model.getListTrailingContent())
@@ -157,17 +158,18 @@ export struct SingleLineList_item {
                   .fontSize(this.model2.getListLeadingContentTextSize())
                   .padding({ left: '10vp' });
               }
-              .padding(this.model2.getLeadingRightSpace())
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLabel())
-                  .fontStyle(this.model2.getMainDataFontStyle())
-                  .fontSize(this.model2.getListMainDataSize())
-                  .fontWeight(this.model2.getListMainDataFontWeight())
-                  .fontColor(this.model2.getListMainDataFontColor())
-                  .textOverflow({ overflow: TextOverflow.Ellipsis })
-                  .maxLines(1)
+                Column() {
+                  Text(this.model.getListLabel())
+                    .fontStyle(this.model2.getMainDataFontStyle())
+                    .fontSize(this.model2.getListMainDataSize())
+                    .fontWeight(this.model2.getListMainDataFontWeight())
+                    .fontColor(this.model2.getListMainDataFontColor())
+                    .textOverflow({ overflow: TextOverflow.Ellipsis })
+                    .maxLines(1)
+                }.padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListTrailingContent())
@@ -190,10 +192,10 @@ export struct SingleLineList_item {
                   .fontSize(this.model2.getListLeadingContentTextSize())
                   .padding({ left: '10vp' });
               }
-              .padding(this.model2.getLeadingRightSpace())
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
+                Column(){
                 Text(this.model.getListLabel())
                   .fontStyle(this.model2.getMainDataFontStyle())
                   .fontSize(this.model2.getListMainDataSize())
@@ -201,6 +203,7 @@ export struct SingleLineList_item {
                   .fontColor(this.model2.getListMainDataFontColor())
                   .textOverflow({ overflow: TextOverflow.Ellipsis })
                   .maxLines(1)
+                  }.padding({ right: this.model2.getListDataRightSpace() })
               }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
                 Text(this.model.getListTrailingContent())

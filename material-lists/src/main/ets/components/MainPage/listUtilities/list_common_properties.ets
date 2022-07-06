@@ -27,7 +27,6 @@ const DEFAULT_DATA_PADDING_SIZE: string = '15vp'
 const DEFAULT_DATA_CONTAINER_SIZE: SizeOptions = { width: '190vp', height: '70vp' }
 const DEFAULT_LEADING_CONTENT_TEXT_SIZE: string = '15vp'
 const DEFAULT_LEADING_BORDER_RADIUS: string = '1vp'
-const DEFAULT_LEADING_RIGHT_SPACE_SIZE: string = '10vp'
 const DEFAULT_TRAILING_BORDER_RADIUS: string = '1vp'
 const DEFAULT_ITEM_SPACES_SIZE: string = '0vp'
 const DEFAULT_TRAILING_IMAGE_SIZE: SizeOptions = { width: '40vp', height: '40vp' }
@@ -60,7 +59,6 @@ export class CommonProperties {
   protected listLeadingContentTextSize: string= DEFAULT_LEADING_CONTENT_TEXT_SIZE
   protected listLeadingBorderRadius: string = DEFAULT_LEADING_BORDER_RADIUS
   protected listTrailingBorderRadius: string = DEFAULT_TRAILING_BORDER_RADIUS
-  protected listLeadingRightSpace: string = DEFAULT_LEADING_RIGHT_SPACE_SIZE
   protected listItemsSpace: string = DEFAULT_ITEM_SPACES_SIZE
   protected listIsToggleSwitchPresent: boolean= false
   protected isLeadingContentImage: boolean = false
@@ -86,7 +84,6 @@ return this.backGroundColor
   setBackGroundColor(BackGroundColor:string):CommonProperties{
     this.backGroundColor = (BackGroundColor != null && BackGroundColor != undefined) ? BackGroundColor : DEFAULT_BACKGROUND_COLOR
     return this
-
   }
   getMainDataFontStyle(){
     return this.mainDataFontStyle
@@ -101,9 +98,7 @@ return this.backGroundColor
   setSubDataFontStyle(SubDataFontStyle:FontStyle){
     this.subDataFontStyle = (SubDataFontStyle != null && SubDataFontStyle != undefined) ? SubDataFontStyle : DEFAULT_SUB_DATA_FONT_STYLE
     return this
-
   }
-
   getDividerStrokeWidth():number{
     return this.dividerStrokeWidth
   }
@@ -131,7 +126,6 @@ return this.backGroundColor
     if (StrokeWidth < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
     }
-
     this.dividerStrokeWidth = (StrokeWidth != null && StrokeWidth != undefined) ? StrokeWidth : DEFAULT_DIVIDER_STROKE_WIDTH
     return this
   }
@@ -142,7 +136,6 @@ return this.backGroundColor
   setDivider(divide:boolean):CommonProperties{
     this.dividerVisible = (divide != null && divide != undefined) ? divide : DEFAULT_DIVIDER_VISIBILITY
     return this
-
   }
   getSpaceOnTop():string{
     return this.topSpace
@@ -154,15 +147,12 @@ return this.backGroundColor
     this.topSpace = (spc != null && spc != undefined) ? spc : DEFAULT_TOP_SPACE
     return this
   }
-
   getLeadingImageBorderRadius(): string{
     return this.listLeadingBorderRadius
   }
-
   getTrailingImageBorderRadius(): string{
     return this.listTrailingBorderRadius
   }
-
   setLeadingImageBorderRadius(rad: string): CommonProperties{
     if (rad[0] === '-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -170,7 +160,6 @@ return this.backGroundColor
     this.listLeadingBorderRadius = (rad != null && rad != undefined) ? rad : DEFAULT_LEADING_BORDER_RADIUS
     return this
   }
-
   setTrailingImageBorderRadius(rad: string): CommonProperties{
     if (rad[0] === '-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -178,77 +167,60 @@ return this.backGroundColor
     this.listTrailingBorderRadius = (rad != null && rad != undefined) ? rad : DEFAULT_TRAILING_BORDER_RADIUS
     return this
   }
-
   getListTrailingContainerSize(): SizeOptions{
     return this.listTrailingContainerSize
   }
-
   setListTrailingContainerSize(TrailingContainerSize: SizeOptions): CommonProperties{
     if (TrailingContainerSize < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
     }
     this.listTrailingContainerSize = (TrailingContainerSize != null && TrailingContainerSize != undefined) ? TrailingContainerSize : DEFAULT_TRAILING_CONTAINER_SIZE
     return this
-
   }
-
   getListLeadingContentImageSize(): SizeOptions{
     return this.listLeadingContentImageSize
   }
-
   setListLeadingContentImageSize(LeadContent: SizeOptions): CommonProperties{
 
     if (LeadContent < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
     }
-
     this.listLeadingContentImageSize = (LeadContent != null && LeadContent != undefined) ? LeadContent : DEFAULT_LEADING_IMAGE_SIZE
     return this
   }
-
   getListTrailingContentImageSize(): SizeOptions{
     return this.listTrailingContentImageSize
   }
-
   setListTrailingContentImageSize(TrailContent: SizeOptions): CommonProperties{
     if (TrailContent < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
     }
-
     this.listTrailingContentImageSize = (TrailContent != null && TrailContent != undefined) ? TrailContent : DEFAULT_TRAILING_IMAGE_SIZE
     return this
   }
-
   getListLeadingContentTextSize(): string {
     return this.listLeadingContentTextSize
   }
-
   setListLeadingContentTextSize(LeadContent: string): CommonProperties{
     if (LeadContent[0] === '-') {
        throw new Error("Invalid size. Please provide a  valid input")
     }
-
     this.listLeadingContentTextSize = (LeadContent != null && LeadContent != undefined) ? LeadContent : DEFAULT_LEADING_CONTENT_TEXT_SIZE
     return this
   }
   getListLeadingContainerSize(): SizeOptions{
     return this.listLeadingContainerSize
   }
-
   setListLeadingContainerSize(LeadingContainerSize: SizeOptions): CommonProperties{
     if (LeadingContainerSize < 0) {
        throw new Error("Invalid size. Please provide a  valid input")
     }
     this.listLeadingContainerSize = (LeadingContainerSize != null && LeadingContainerSize != undefined) ? LeadingContainerSize : DEFAULT_LEADING_CONTAINER_SIZE
     return this
-
   }
-
   getListTrailingContentTextSize(): string{
     return this.listTrailingContentTextSize
-
   }
-
   setListTrailingContentTextSize(TrailingContentSize: string): CommonProperties{
     if (TrailingContentSize[0]==='-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -256,11 +228,9 @@ return this.backGroundColor
     this.listTrailingContentTextSize = (TrailingContentSize != null && TrailingContentSize != undefined) ? TrailingContentSize : DEFAULT_TRAILING_TEXT_SIZE
     return this
   }
-
   getListContainerSize(): SizeOptions{
     return this.listContainerSize
   }
-
   setListContainerSize(ContainerSize: SizeOptions): CommonProperties{
     if (ContainerSize < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -268,11 +238,9 @@ return this.backGroundColor
     this.listContainerSize = (ContainerSize != null && ContainerSize != undefined) ? ContainerSize : DEFAULT_LIST_CONTAINER_SIZE
     return this
   }
-
   getListMainDataSize(): string{
     return this.listMainDataSize
   }
-
   setListMainDataSize(MainDataSize: string): CommonProperties{
     if (MainDataSize[0] == '-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -280,11 +248,9 @@ return this.backGroundColor
     this.listMainDataSize = (MainDataSize != null && MainDataSize != undefined) ? MainDataSize : DEFAULT_MAIN_DATA_SIZE
     return this
   }
-
   getListSubDataSize(): string{
     return this.listSubDataSize
   }
-
   setListSubDataSize(SubDataSize: string): CommonProperties{
     if (SubDataSize[0]==='-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -292,11 +258,9 @@ return this.backGroundColor
     this.listSubDataSize = (SubDataSize != null && SubDataSize != undefined) ? SubDataSize : DEFAULT_SUB_DATA_SIZE
     return this
   }
-
   getListDataContainerSize(): SizeOptions{
     return this.listDataContainerSize
   }
-
   setListDataContainerSize(DataContainerSize: SizeOptions): CommonProperties{
     if (DataContainerSize < 0) {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -304,11 +268,9 @@ return this.backGroundColor
     this.listDataContainerSize = (DataContainerSize != null && DataContainerSize != undefined) ? DataContainerSize : DEFAULT_DATA_CONTAINER_SIZE
     return this
   }
-
   getListDataRightSpace(): string{
     return this.listDataRightSpace
   }
-
   setListDataRightSpace(ListDataSpace: string): CommonProperties{
     if (ListDataSpace[0]==='-') {
       throw new Error("Invalid size. Please provide a  valid input")
@@ -316,19 +278,6 @@ return this.backGroundColor
     this.listDataRightSpace = (ListDataSpace != null && ListDataSpace != undefined) ? ListDataSpace : this.listDataRightSpace
     return this
   }
-
-  getLeadingRightSpace(): string{
-    return this.listLeadingRightSpace
-  }
-
-  setListLeadingRightSpace(ListLeadingSpace: string): CommonProperties{
-    if (ListLeadingSpace[0]==='-') {
-      throw new Error("Invalid size. Please provide a  valid input")
-    }
-    this.listLeadingRightSpace = (ListLeadingSpace != null && ListLeadingSpace != undefined) ? ListLeadingSpace : this.listLeadingRightSpace
-    return this
-  }
-
   getListItemsSpace(): string{
     return this.listItemsSpace
   }
@@ -341,7 +290,6 @@ return this.backGroundColor
     }
     this.listSubDtaFontWeight = (SubDtaFontWeight != null && SubDtaFontWeight != undefined) ? SubDtaFontWeight : DEFAULT_SUB_DATA_FONT_WEIGHT
     return this
-
   }
   getListMainDataFontWeight():FontWeight{
     return this.listMainDataFontWeight
@@ -352,7 +300,6 @@ return this.backGroundColor
     }
     this.listMainDataFontWeight = (MainDtaFontWeight != null && MainDtaFontWeight != undefined) ? MainDtaFontWeight : DEFAULT_MAIN_DATA_FONT_WEIGHT
     return this
-
   }
   setListItemsSpace(ListItemSpace: string): CommonProperties{
     if (ListItemSpace[0]==='-') {
@@ -365,7 +312,6 @@ return this.backGroundColor
     this.rippleColor =  (Color != null && Color != undefined) ? Color : DEFAULT_RIPPLE_COLOR
     return this
   }
-
   getRippleColor():  string{
     return this.rippleColor
   }
@@ -373,11 +319,9 @@ return this.backGroundColor
     this.rippleAnimation =  (rippleAnimation != null && rippleAnimation != undefined) ? rippleAnimation : DEFAULT_RIPPLE_ANIMATION
     return this
   }
-
   getRippleAnimation(): boolean {
     return this.rippleAnimation
   }
-
 }
 
 

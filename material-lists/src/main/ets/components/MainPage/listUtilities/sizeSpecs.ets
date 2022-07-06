@@ -19,7 +19,6 @@ export var sizeSpecs: {
   leadingContentImageSize: SizeOptions,
   leadingContentBorderRadius: string,
   leadingContentTextSize:string,
-  leadingRightSpace: string,
   dataContainerSize: SizeOptions,
   mainDataSize: string,
   dataRightSpace: string,
@@ -27,10 +26,9 @@ export var sizeSpecs: {
   trailingContentTextSize: string,
   trailingContainerSize: SizeOptions,
   trailingContentBorderRadius: string,
-  listItemsSpace: string
-  listMainDataWeight: FontWeight
-
-
+  listItemsSpace: string,
+  listMainDataWeight: FontWeight,
+  listTopSpace:string
 }[] = [
   {
     containerSize: { width: '360vp', height: '90vp' },
@@ -38,7 +36,6 @@ export var sizeSpecs: {
     leadingContentImageSize: { width: '59vp', height: '50vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
-    leadingRightSpace: '5vp',
     dataContainerSize: { width: '220vp', height: '50vp' },
     mainDataSize: '27fp',
     dataRightSpace: '15vp',
@@ -47,8 +44,8 @@ export var sizeSpecs: {
     trailingContainerSize: { width: '50vp', height: '50vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '7vp',
-    listMainDataWeight:FontWeight.Medium
-
+    listMainDataWeight:FontWeight.Medium,
+    listTopSpace:'18vp'
   },
   {
     containerSize: { width: '360vp', height: '100vp' },
@@ -56,7 +53,6 @@ export var sizeSpecs: {
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
-    leadingRightSpace: '10vp',
     dataContainerSize: { width: '200vp', height: '70vp' },
     mainDataSize: '27fp',
     dataRightSpace: '15vp',
@@ -65,7 +61,8 @@ export var sizeSpecs: {
     trailingContainerSize: { width: '40vp', height: '40vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '0vp',
-    listMainDataWeight:FontWeight.Medium
+    listMainDataWeight:FontWeight.Medium,
+    listTopSpace:'0vp'
   },
   {
     containerSize: { width: '360vp', height: '108vp' },
@@ -73,7 +70,6 @@ export var sizeSpecs: {
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
-    leadingRightSpace: '10vp',
     dataContainerSize: { width: '210vp', height: '70vp' },
     mainDataSize: '27fp',
     dataRightSpace: '15vp',
@@ -82,7 +78,8 @@ export var sizeSpecs: {
     trailingContainerSize: { width: '45vp', height: '45vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '0vp',
-    listMainDataWeight:FontWeight.Medium
+    listMainDataWeight:FontWeight.Medium,
+    listTopSpace:'0vp'
   },
 
   {
@@ -91,7 +88,6 @@ export var sizeSpecs: {
     leadingContentImageSize: { width: '60vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
-    leadingRightSpace: '10vp',
     dataContainerSize: { width: '190vp', height: '70vp' },
     mainDataSize: '28fp',
     dataRightSpace: '15vp',
@@ -100,7 +96,8 @@ export var sizeSpecs: {
     trailingContainerSize: { width: '40vp', height: '40vp' },
     trailingContentBorderRadius: '1vp',
     listItemsSpace: '0vp',
-    listMainDataWeight:FontWeight.Medium
+    listMainDataWeight:FontWeight.Medium,
+    listTopSpace:'0vp'
   },
 
 ]
