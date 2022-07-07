@@ -5,12 +5,12 @@
       "value": "description"
     },
     {
-      "name": "MainAbility_desc",
-      "value": "description"
-    },
-    {
       "name": "MainAbility_label",
       "value": "label"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "description"
     }
   ]
 }

@@ -2,4 +2,3 @@
 /local.properties
 /.idea
 **/build
-/package-lock.json

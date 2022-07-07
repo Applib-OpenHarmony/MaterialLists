@@ -1,15 +1,18 @@
 {
-  "name": "entry",
-  "version": "1.0.0",
-  "ohos": {
-    "org": "huawei",
-    "buildTool": "hvigor",
-    "directoryLevel": "module"
-  },
-  "description": "example description",
-  "repository": {},
-  "license": "ISC",
-  "dependencies": {
-    "@ohos/material-lists": "file:../material-lists"
-  }
+	"license": "ISC",
+	"devDependencies": {
+		"@types/libhello.so": "file:./src/main/cpp/types/libhello"
+	},
+	"name": "entry",
+	"ohos": {
+		"org": "huawei",
+		"directoryLevel": "module",
+		"buildTool": "hvigor"
+	},
+	"description": "example description",
+	"repository": {},
+	"version": "1.0.0",
+	"dependencies": {
+		"@ohos/material-lists": "file:../materiallists"
+	}
 }

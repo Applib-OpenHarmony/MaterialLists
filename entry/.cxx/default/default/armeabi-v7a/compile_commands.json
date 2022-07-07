@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/D.JAY PRAKASH/DevEcoStudioProjects/Material_Lists/entry/.cxx/default/default/armeabi-v7a",
+  "command": "\"C:\\Users\\D.JAY PRAKASH\\AppData\\Local\\OpenHarmony\\Sdk\\native\\5.0.1.0\\llvm\\bin\\clang++.exe\" --target=arm-linux-ohos --gcc-toolchain=\"C:/Users/D.JAY PRAKASH/AppData/Local/OpenHarmony/Sdk/native/5.0.1.0/llvm\" --sysroot=\"C:/Users/D.JAY PRAKASH/AppData/Local/OpenHarmony/Sdk/native/5.0.1.0/sysroot\"  -Dhello_EXPORTS -I\"C:/Users/D.JAY PRAKASH/DevEcoStudioProjects/Material_Lists/entry/src/main/cpp\" -I\"C:/Users/D.JAY PRAKASH/DevEcoStudioProjects/Material_Lists/entry/src/main/cpp/include\"  -g -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -march=armv7a   -D__MUSL__ -fPIC   -o CMakeFiles\\hello.dir\\hello.cpp.o -c \"C:\\Users\\D.JAY PRAKASH\\DevEcoStudioProjects\\Material_Lists\\entry\\src\\main\\cpp\\hello.cpp\"",
+  "file": "C:\\Users\\D.JAY PRAKASH\\DevEcoStudioProjects\\Material_Lists\\entry\\src\\main\\cpp\\hello.cpp"
+}
+]

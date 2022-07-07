@@ -1,8 +1,8 @@
 {
   "app": {
     "signingConfigs": [],
-    "compileSdkVersion": 8,
-    "compatibleSdkVersion": 8,
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
     "products": [
       {
         "name": "default",
@@ -11,5 +11,21 @@
     ]
   },
   "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "materialLists",
+      "srcPath": "./materialLists"
+    }
   ]
 }
