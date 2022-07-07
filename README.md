@@ -15,7 +15,7 @@ import {SingleLineListItems, SingleLineListGroup, TwoLineListGroup,TwoLineListIt
  ![single-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296416-e8e33c0c-20a1-421f-81c9-2539b67ae1c1.gif)
  ![double-line-list-demo](https://user-images.githubusercontent.com/105175305/177506365-3ed43f01-f541-46c4-8db4-25690c6a5b4f.gif)<br/>
 ![three-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296676-e88fc9e7-58f7-41c0-90c8-34ab3d30c66f.gif)
-![nested-line-list-demo-](https://user-images.githubusercontent.com/105175305/177508297-9d608f3f-c73e-4324-86c4-79e9d7fa3f59.gif)
+![nested-List-Demo](https://user-images.githubusercontent.com/105175305/177807661-61e37aa0-ca2e-4357-bd29-7e921191d637.gif)
 
 ## Common Properties Like Sizes, Color and weights
 ## Methods
@@ -258,37 +258,76 @@ struct Index {
  
   ```
 ### NestedList:
-![nested-line-list-demo](https://user-images.githubusercontent.com/105175305/177507497-c2fd455d-870c-4112-bc95-23432466d8e6.gif)
+![nested-line-list-demo-4](https://user-images.githubusercontent.com/105175305/177806432-155a3d1e-6a3c-4d58-b72b-2dc7cdb535fc.gif)
+
 
  Code:
 ```
 
+/*
+ * Copyright (c) 2022 Application Library Engineering Group.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import prompt from '@system.prompt';
-import { NestedListGroup,NestedListItems,CommonGroupModel,ListType }  from '@ohos/material-lists'
+import { NestedListGroup, NestedListItems, CommonGroupModel, ListType }  from '@ohos/material-lists'
+
 @Entry
 @Component
 struct Index {
-  aboutToAppear(){
+  aboutToAppear() {
     this.model_NestedListGroup.setRippleColor('#FFC0CB')
     this.model_NestedListGroup.setListMainDataSize('32vp')
-    this.model_NestedListGroup.setMainDataFontStyle(FontStyle.Italic)
+    this.model_NestedListGroup.setSubDataFontStyle(FontStyle.Italic)
   }
+
   model_NestedListGroup: CommonGroupModel.Model = new CommonGroupModel.Model().setGroupListType(ListType.NestedListGroup)
   List_items: NestedListItems[] = [
-    new NestedListItems(  $r('app.media.rahul'),"Meeting",'Lets meet this evening for discussion of project' ,'Rahul', '01',function ab(){ AlertDialog.show({ message: 'You clicked PROJECT' })}),
-    new NestedListItems($r('app.media.google'), "Search Engine",'Google',null,null,function ab(){ AlertDialog.show({ message: 'You clicked GOOGLE' })}),
-    new NestedListItems($r('app.media.mic'), "Voice Search", 'US','English',null,function ab(){ AlertDialog.show({ message: 'You clicked mic' })}),
-    new NestedListItems($r('app.media.clock'), " Clock", '10:00 AM',null,'24hrs',function ab(){ AlertDialog.show({ message: 'You clicked Clock' })}),
-    new NestedListItems($r('app.media.maps'), " Gmaps", '20m','Turn left after',$r('app.media.direction'),function ab(){ AlertDialog.show({ message: 'You clicked Google Maps' })}),
-    new NestedListItems($r('app.media.recorder'), " Recorder", '2min 30secs',null,'00:01',function ab(){ AlertDialog.show({ message: 'You clicked Recorder' })}),
-    new NestedListItems($r('app.media.camera'), " Camera", null,null,null,function ab(){ AlertDialog.show({ message: 'You clicked Camera' })}),
-    new NestedListItems($r('app.media.battery'), " Battery", '30%',null,$r('app.media.charging'),function ab(){ AlertDialog.show({ message: 'You clicked Charging' })}),
-    new NestedListItems(null, "Privacy",null, null,null,function ab(){ AlertDialog.show({ message: 'You clicked PRIVACY' })}),
+    new NestedListItems($r('app.media.rahul'), "Meeting", 'Lets meet this evening for discussion of project', 'Rahul', '01', function ab() {
+      AlertDialog.show({ message: 'You clicked PROJECT' })
+    }),
+    new NestedListItems($r('app.media.google'), "Search Engine", 'Google', null, null, function ab() {
+      AlertDialog.show({ message: 'You clicked GOOGLE' })
+    }),
+    new NestedListItems($r('app.media.mic'), "Voice Search", 'US', 'English', null, function ab() {
+      AlertDialog.show({ message: 'You clicked mic' })
+    }),
+    new NestedListItems($r('app.media.clock'), "Clock", '10:00 AM', null, '24hrs', function ab() {
+      AlertDialog.show({ message: 'You clicked Clock' })
+    }),
+    new NestedListItems($r('app.media.maps'), "Gmaps", 'Turn left ', null, $r('app.media.direction'), function ab() {
+      AlertDialog.show({ message: 'You clicked Google Maps' })
+    }),
+    new NestedListItems($r('app.media.recorder'), "Recorder", '2min 30secs', null, '00:01', function ab() {
+      AlertDialog.show({ message: 'You clicked Recorder' })
+    }),
+    new NestedListItems($r('app.media.camera'), "Camera", null, null, null, function ab() {
+      AlertDialog.show({ message: 'You clicked Camera' })
+    }),
+    new NestedListItems($r('app.media.battery'), "Battery", '30%', null, $r('app.media.charging'), function ab() {
+      AlertDialog.show({ message: 'You clicked Charging' })
+    }),
+    new NestedListItems(null, "Privacy", null, null, null, function ab() {
+      AlertDialog.show({ message: 'You clicked PRIVACY' })
+    }),
+    new NestedListItems($r('app.media.camera'), "Camera", null, null, null, function ab() {
+      AlertDialog.show({ message: 'You clicked Camera' })
+    }),
   ]
-  build(){
+
+  build() {
     Column() {
       NestedListGroup({
-         models:this.model_NestedListGroup,
+        models: this.model_NestedListGroup,
         options: this.List_items,
       })
     }
