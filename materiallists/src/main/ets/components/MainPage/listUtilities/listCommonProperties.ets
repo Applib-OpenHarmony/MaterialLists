@@ -44,7 +44,8 @@ const DEFAULT_BACKGROUND_COLOR: string = '#FFFFFF'
 const DEFAULT_SUB_DATA_FONT_COLOR: string = '#000000'
 const DEFAULT_MAIN_DATA_FONT_STYLE: FontStyle = FontStyle.Normal
 const DEFAULT_SUB_DATA_FONT_STYLE: FontStyle = FontStyle.Normal
-const DEFAULT_SEPARATOR:string ='-'
+const DEFAULT_SEPARATOR: string = '-'
+
 export class CommonProperties {
   protected listLeadingContainerSize: SizeOptions = DEFAULT_LEADING_CONTAINER_SIZE
   protected listLeadingContentImageSize: SizeOptions= DEFAULT_LEADING_IMAGE_SIZE
@@ -79,7 +80,7 @@ export class CommonProperties {
   protected subDataFontColor: string = DEFAULT_SUB_DATA_FONT_COLOR
   protected mainDataFontStyle: FontStyle = DEFAULT_MAIN_DATA_FONT_STYLE
   protected subDataFontStyle: FontStyle  = DEFAULT_SUB_DATA_FONT_STYLE
-  protected separatingSymbol:string = DEFAULT_SEPARATOR
+  protected separatingSymbol: string = DEFAULT_SEPARATOR
   lenToNum(value: Length): number {
     return parseFloat(value.toString())
   }
@@ -383,10 +384,11 @@ export class CommonProperties {
   }
 
   getSymbol(): string{
-  return this.separatingSymbol
+    return this.separatingSymbol
   }
 
-  setSymbol(Separator:string){
-    this.separatingSymbol = (Separator != null && Separator != undefined)?Separator: DEFAULT_SEPARATOR
+  setSymbol(Separator: string) {
+    this.separatingSymbol = (Separator != null && Separator != undefined) ? Separator : DEFAULT_SEPARATOR
+    return this
   }
 }

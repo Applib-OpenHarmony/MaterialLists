@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-export {SingleLineListItems , TwoLineListItems,ThreeLineListItems,NestedListItems} from './src/main/ets/components/MainPage/listUtilities/listClasses'
-export{SingleLineListModel,TwoLineListModel ,ThreeLineListModel} from './src/main/ets/components/MainPage/listModels/listmodels'
-export {CommonGroupModel} from './src/main/ets/components/MainPage/listModels/commonGroupModel'
-export {SingleLineListGroup} from './src/main/ets/components/MainPage/singleLineList'
-export {ListType}  from './src/main/ets/components/MainPage/listUtilities/listTypes'
-export {TwoLineListGroup} from './src/main/ets/components/MainPage/twoLineList'
-export {ThreeLineListGroup} from './src/main/ets/components/MainPage/tripleLineList'
-export {NestedListGroup} from './src/main/ets/components/MainPage/nestedList'
+export { SingleLineListItems, TwoLineListItems, ThreeLineListItems, NestedListItems
+} from './src/main/ets/components/MainPage/listUtilities/listClasses'
+export { SingleLineListModel, TwoLineListModel, ThreeLineListModel
+} from './src/main/ets/components/MainPage/listModels/listmodels'
+export { CommonGroupModel } from './src/main/ets/components/MainPage/listModels/commonGroupModel'
+export { SingleLineListGroup } from './src/main/ets/components/MainPage/singleLineList'
+export { ListType }  from './src/main/ets/components/MainPage/listUtilities/listTypes'
+export { TwoLineListGroup } from './src/main/ets/components/MainPage/twoLineList'
+export { ThreeLineListGroup } from './src/main/ets/components/MainPage/tripleLineList'
+export { NestedListGroup } from './src/main/ets/components/MainPage/nestedList'
