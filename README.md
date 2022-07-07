@@ -15,7 +15,7 @@ import {SingleLineListItems, SingleLineListGroup, TwoLineListGroup,TwoLineListIt
  ![single-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296416-e8e33c0c-20a1-421f-81c9-2539b67ae1c1.gif)
  ![double-line-list-demo](https://user-images.githubusercontent.com/105175305/177506365-3ed43f01-f541-46c4-8db4-25690c6a5b4f.gif)<br/>
 ![three-Line-List-Demo](https://user-images.githubusercontent.com/105175305/177296676-e88fc9e7-58f7-41c0-90c8-34ab3d30c66f.gif)
-![nested-List-Demo](https://user-images.githubusercontent.com/105175305/177807661-61e37aa0-ca2e-4357-bd29-7e921191d637.gif)
+![nested-List-Demo](https://user-images.githubusercontent.com/105175305/177808711-9175805b-49b6-431a-9d3a-2b98b8b7570c.gif)
 
 ## Common Properties Like Sizes, Color and weights
 ## Methods
@@ -258,26 +258,11 @@ struct Index {
  
   ```
 ### NestedList:
-![nested-line-list-demo-4](https://user-images.githubusercontent.com/105175305/177806432-155a3d1e-6a3c-4d58-b72b-2dc7cdb535fc.gif)
+![temp-2](https://user-images.githubusercontent.com/105175305/177809301-1d6d51d6-489d-43cc-96e9-b112c386bf4d.gif)
 
 
  Code:
 ```
-
-/*
- * Copyright (c) 2022 Application Library Engineering Group.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 import prompt from '@system.prompt';
 import { NestedListGroup, NestedListItems, CommonGroupModel, ListType }  from '@ohos/material-lists'
 
