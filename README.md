@@ -3,7 +3,7 @@
 For using material-lists in your app, add the below dependency in entry/package.json
 ```
 "dependencies": {
-    "@ohos/material-lists": "file:../material-lists" 
+    "@ohos/material-lists": "file:../materiallists" 
   }
  ``` 	
 ## Usage Instructions
@@ -32,8 +32,8 @@ Common group model extends this class and used to get access to all these method
 | `setListMainDataFontWeight(MainDtaFontWeight:FontWeight)`        | `CommonProperties`          | sets fontWeight of Main Data    |
 | `getListSubDataFontWeight()`        | `FontWeight`          |  returns fontWeight of Sub Data   |
 | `setListSubDataFontWeight(SubDtaFontWeight:FontWeight)`        | `CommonProperties`          |  sets fontWeight of Sub Data   |
-| ` getLeadingRightSpace()`        | `string`          |   returns padding to the right of leading content  |
-| `setListLeadingRightSpace(ListLeadingSpace: string)`        | `CommonProperties`          |   sets padding to the right of leading content  |
+| ` getSymbol()`        | `string`          |   returns symbol that seperates secondary sub data and sub data  |
+| `setSymbol(Separator: string)`        | `CommonProperties`          |   sets symbol that seperates secondary sub data and sub data  |
 | ` getListDataRightSpace()`        | `string`          |    returns padding to the right of Data content Container |
 | `setListDataRightSpace(ListDataSpace: string)`        | `CommonProperties`          |   sets padding to the right of Data content Container  |
 | ` getListDataContainerSize()`        | `SizeOptions`          | returns List Data Container Size   |
@@ -296,6 +296,13 @@ struct Index {
 }
 
 ```
+## Compatibility
+Supports OpenHarmony API version 8 and above
+## Code Contribution
+If you find any problems during usage, you can submit an Issue to us. Of course, we also welcome you to send us PR.
+## Open source License
+This project is based on Apache License 2.0, please enjoy and participate in open source freely.
+
 
 
 
