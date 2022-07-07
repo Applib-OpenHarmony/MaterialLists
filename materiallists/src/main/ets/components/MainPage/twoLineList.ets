@@ -77,7 +77,8 @@ export struct TwoLineList_Item {
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListLeadingContent())
                   .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListLeadingContentImageSize());
+                  .size(this.model2.getListLeadingContentImageSize())
+                  .padding({ left: '10vp' });
               }
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
@@ -118,6 +119,7 @@ export struct TwoLineList_Item {
                 Image(this.model.getListLeadingContent())
                   .objectFit(ImageFit.Cover)
                   .size(this.model2.getListLeadingContentImageSize())
+                  .padding({ left: '10vp' });
               }
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() })
@@ -157,7 +159,7 @@ export struct TwoLineList_Item {
           else if (this.model.getIsLeadingContentImage() === false && this.model.getIsTrailingContentImage() == true) {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize());
+                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize()).padding({ left: '10vp' });
               }
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });
@@ -195,7 +197,7 @@ export struct TwoLineList_Item {
           else {
             Flex() {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize());
+                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize()).padding({ left: '10vp' });
               }
               .size(this.model2.getListLeadingContainerSize())
               .padding({ top: this.model2.getSpaceOnTop() });

@@ -50,7 +50,7 @@ export var sizeSpecs: {
   {
     containerSize: { width: '360vp', height: '100vp' },
     leadingContainerSize: { width: '80vp', height: '88vp' },
-    leadingContentImageSize: { width: '60vp', height: '70vp' },
+    leadingContentImageSize: { width: '70vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
     dataContainerSize: { width: '200vp', height: '70vp' },
@@ -67,7 +67,7 @@ export var sizeSpecs: {
   {
     containerSize: { width: '360vp', height: '108vp' },
     leadingContainerSize: { width: '80vp', height: '90vp' },
-    leadingContentImageSize: { width: '60vp', height: '70vp' },
+    leadingContentImageSize: { width: '70vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
     dataContainerSize: { width: '210vp', height: '70vp' },
@@ -83,8 +83,8 @@ export var sizeSpecs: {
   },
   {
     containerSize: { width: '360vp', height: '100vp' },
-    leadingContainerSize: { width: '80vp', height: '90vp' },
-    leadingContentImageSize: { width: '60vp', height: '70vp' },
+    leadingContainerSize: { width: '85vp', height: '90vp' },
+    leadingContentImageSize: { width: '70vp', height: '70vp' },
     leadingContentBorderRadius: '1vp',
     leadingContentTextSize: '22fp',
     dataContainerSize: { width: '190vp', height: '70vp' },
