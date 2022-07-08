@@ -14,7 +14,6 @@
  */
 
 import { ListType } from './listTypes'
-import { sizeSpecs } from './sizeSpecs'
 
 const DEFAULT_LIST_TYPE: ListType = ListType.NestedListGroup
 const DEFAULT_LEADING_CONTAINER_SIZE: SizeOptions = { width: '80vp', height: '90vp' }
@@ -28,7 +27,6 @@ const DEFAULT_DATA_CONTAINER_SIZE: SizeOptions = { width: '190vp', height: '70vp
 const DEFAULT_LEADING_CONTENT_TEXT_SIZE: string = '15vp'
 const DEFAULT_LEADING_BORDER_RADIUS: string = '1vp'
 const DEFAULT_TRAILING_BORDER_RADIUS: string = '1vp'
-const DEFAULT_ITEM_SPACES_SIZE: string = '0vp'
 const DEFAULT_TRAILING_IMAGE_SIZE: SizeOptions = { width: '40vp', height: '40vp' }
 const DEFAULT_SUB_DATA_SIZE: string = '22vp'
 const DEFAULT_SUB_DATA_FONT_WEIGHT: FontWeight = FontWeight.Regular
@@ -38,7 +36,8 @@ const DEFAULT_RIPPLE_COLOR: string = '#808080'
 const DEFAULT_DIVIDER_VISIBILITY: boolean = true
 const DEFAULT_DIVIDER_STROKE_WIDTH: number = 2.4
 const DEFAULT_DIVIDER_COLOR: string = ' #000000'
-const DEFAULT_TOP_SPACE: string = '10vp'
+const DEFAULT_LEFT_SPACE: string = '10vp'
+const DEFAULT_RIGHT_SPACE: string = '5vp'
 const DEFAULT_MAIN_DATA_FONT_COLOR: string = ' #000000'
 const DEFAULT_BACKGROUND_COLOR: string = '#FFFFFF'
 const DEFAULT_SUB_DATA_FONT_COLOR: string = '#000000'
@@ -61,7 +60,6 @@ export class CommonProperties {
   protected listLeadingContentTextSize: string= DEFAULT_LEADING_CONTENT_TEXT_SIZE
   protected listLeadingBorderRadius: string = DEFAULT_LEADING_BORDER_RADIUS
   protected listTrailingBorderRadius: string = DEFAULT_TRAILING_BORDER_RADIUS
-  protected listItemsSpace: string = DEFAULT_ITEM_SPACES_SIZE
   protected listIsToggleSwitchPresent: boolean= false
   protected isLeadingContentImage: boolean = false
   protected isTrailingContentImage: boolean = false
@@ -74,13 +72,15 @@ export class CommonProperties {
   protected dividerColor: string = DEFAULT_DIVIDER_COLOR
   protected dividerVisible: boolean= DEFAULT_DIVIDER_VISIBILITY
   protected listMainDataFontWeight: FontWeight = DEFAULT_MAIN_DATA_FONT_WEIGHT
-  protected topSpace: string = DEFAULT_TOP_SPACE
+  protected leftSpace: string = DEFAULT_LEFT_SPACE
+  protected rightSpace: string = DEFAULT_RIGHT_SPACE
   protected mainDataFontColor: string = DEFAULT_MAIN_DATA_FONT_COLOR
   protected backGroundColor: string = DEFAULT_BACKGROUND_COLOR
   protected subDataFontColor: string = DEFAULT_SUB_DATA_FONT_COLOR
   protected mainDataFontStyle: FontStyle = DEFAULT_MAIN_DATA_FONT_STYLE
   protected subDataFontStyle: FontStyle  = DEFAULT_SUB_DATA_FONT_STYLE
   protected separatingSymbol: string = DEFAULT_SEPARATOR
+
   lenToNum(value: Length): number {
     return parseFloat(value.toString())
   }
@@ -160,15 +160,27 @@ export class CommonProperties {
     return this
   }
 
-  getSpaceOnTop(): string{
-    return this.topSpace
+  getSpaceOnLeft(): string{
+    return this.leftSpace
   }
 
-  setSpaceOnTop(spc: string): CommonProperties{
+  setSpaceOnLeft(spc: string): CommonProperties{
     if (spc[0] === '-') {
       throw new Error("Invalid size. Please provide a  valid input")
     }
-    this.topSpace = (spc != null && spc != undefined) ? spc : DEFAULT_TOP_SPACE
+    this.leftSpace = (spc != null && spc != undefined) ? spc : DEFAULT_LEFT_SPACE
+    return this
+  }
+
+  getSpaceOnRight(): string{
+    return this.rightSpace
+  }
+
+  setSpaceOnRight(spc: string): CommonProperties{
+    if (spc[0] === '-') {
+      throw new Error("Invalid size. Please provide a  valid input")
+    }
+    this.rightSpace = (spc != null && spc != undefined) ? spc : DEFAULT_RIGHT_SPACE
     return this
   }
 
@@ -329,10 +341,6 @@ export class CommonProperties {
     return this
   }
 
-  getListItemsSpace(): string{
-    return this.listItemsSpace
-  }
-
   getListSubDataFontWeight(): FontWeight{
     return this.listSubDtaFontWeight
   }
@@ -354,14 +362,6 @@ export class CommonProperties {
       throw new Error("Invalid size. Please provide a  valid input")
     }
     this.listMainDataFontWeight = (MainDtaFontWeight != null && MainDtaFontWeight != undefined) ? MainDtaFontWeight : DEFAULT_MAIN_DATA_FONT_WEIGHT
-    return this
-  }
-
-  setListItemsSpace(ListItemSpace: string): CommonProperties{
-    if (ListItemSpace[0] === '-') {
-      throw new Error("Invalid size. Please provide a  valid input")
-    }
-    this.listItemsSpace = (ListItemSpace != null && ListItemSpace != undefined) ? ListItemSpace : DEFAULT_ITEM_SPACES_SIZE
     return this
   }
 

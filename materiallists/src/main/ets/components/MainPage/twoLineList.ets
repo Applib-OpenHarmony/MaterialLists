@@ -17,7 +17,6 @@ import { TwoLineListModel } from './listModels/listmodels';
 import { TwoLineListItems } from './listUtilities/listClasses';
 import { ripple } from './animation/Ripple';
 import { CommonGroupModel } from './listModels/commonGroupModel'
-import { CommonProperties } from './listUtilities/listCommonProperties'
 
 @Entry
 @Component
@@ -47,8 +46,10 @@ export struct TwoLineListGroup {
           },
         )
       }
-      .divider({ strokeWidth: this.models.getDividerStrokeWidth(), color: this.models.getDividerColor() })
-      .visibility((this.models.getDivider() == true) ? Visibility.Visible : Visibility.Hidden)
+      .divider({
+        strokeWidth: (this.models.getDivider() == true) ? this.models.getDividerStrokeWidth() : 0,
+        color: (this.models.getDivider() == true) ? this.models.getDividerColor() : this.models.getBackGroundColor()
+      })
     }
   }
 }
@@ -73,15 +74,15 @@ export struct TwoLineList_Item {
       Column() {
         Row() {
           if (this.model.getIsLeadingContentImage() === true && this.model.getIsTrailingContentImage() == true) {
-            Flex() {
+            Flex({ alignItems: ItemAlign.Center }) {
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListLeadingContent())
                   .objectFit(ImageFit.Cover)
                   .size(this.model2.getListLeadingContentImageSize())
-                  .padding({ left: '10vp' });
+                  .borderRadius(this.model2.getLeadingImageBorderRadius())
+                  .padding({ left: this.model2.getSpaceOnLeft() });
               }
-              .size(this.model2.getListLeadingContainerSize())
-              .padding({ top: this.model2.getSpaceOnTop() });
+              .size(this.model2.getListLeadingContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
                   Text(this.model.getListLabel())
@@ -99,12 +100,14 @@ export struct TwoLineList_Item {
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
-              }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListTrailingContent())
                   .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListTrailingContentImageSize());
-              }.padding({ top: this.model2.getSpaceOnTop() }).padding('5vp');
+                  .borderRadius(this.model2.getTrailingImageBorderRadius())
+                  .size(this.model2.getListTrailingContentImageSize())
+                  .padding({ right: this.model2.getSpaceOnRight() });
+              }.size(this.model2.getListTrailingContainerSize());
               ripple({
                 rippleStartPosition: $clickCoordinates,
                 size: $containerSize,
@@ -114,16 +117,15 @@ export struct TwoLineList_Item {
             }.size(this.model2.getListContainerSize());
           }
           else if (this.model.getIsLeadingContentImage() === true && this.model.getIsTrailingContentImage() == false) {
-            Flex() {
+            Flex({ alignItems: ItemAlign.Center }) {
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListLeadingContent())
                   .objectFit(ImageFit.Cover)
                   .size(this.model2.getListLeadingContentImageSize())
-                  .padding({ left: '10vp' });
+                  .borderRadius(this.model2.getLeadingImageBorderRadius())
+                  .padding({ left: this.model2.getSpaceOnLeft() });
               }
-              .size(this.model2.getListLeadingContainerSize())
-              .padding({ top: this.model2.getSpaceOnTop() })
-
+              .size(this.model2.getListLeadingContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
                   Text(this.model.getListLabel())
@@ -137,17 +139,16 @@ export struct TwoLineList_Item {
                     .fontSize(this.model2.getListSubDataSize())
                     .fontWeight(this.model2.getListSubDataFontWeight())
                     .fontStyle(this.model2.getSubDataFontStyle())
-                    .fontColor(this.model2.getListMainDataFontColor())
                     .fontColor(this.model2.getListSubDataFontColor())
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
-              }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Text(this.model.getListTrailingContent())
                   .fontSize(this.model2.getListTrailingContentTextSize())
-                  .padding({ top: this.model2.getSpaceOnTop() });
-              }.padding('5vp');
+                  .padding({ right: this.model2.getSpaceOnRight() });
+              }.size(this.model2.getListTrailingContainerSize());
               ripple({
                 rippleStartPosition: $clickCoordinates,
                 size: $containerSize,
@@ -157,12 +158,13 @@ export struct TwoLineList_Item {
             }.size(this.model2.getListContainerSize());
           }
           else if (this.model.getIsLeadingContentImage() === false && this.model.getIsTrailingContentImage() == true) {
-            Flex() {
+            Flex({ alignItems: ItemAlign.Center }) {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize()).padding({ left: '10vp' });
+                Text(this.model.getListLeadingContent())
+                  .fontSize(this.model2.getListLeadingContentTextSize())
+                  .padding({ left: this.model2.getSpaceOnLeft() });
               }
-              .size(this.model2.getListLeadingContainerSize())
-              .padding({ top: this.model2.getSpaceOnTop() });
+              .size(this.model2.getListLeadingContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
                   Text(this.model.getListLabel())
@@ -180,12 +182,14 @@ export struct TwoLineList_Item {
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
-              }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
                 Image(this.model.getListTrailingContent())
                   .objectFit(ImageFit.Cover)
-                  .size(this.model2.getListTrailingContentImageSize());
-              }.padding('5vp').padding({ top: this.model2.getSpaceOnTop() });
+                  .borderRadius(this.model2.getTrailingImageBorderRadius())
+                  .size(this.model2.getListTrailingContentImageSize())
+                  .padding({ right: this.model2.getSpaceOnRight() });
+              }.size(this.model2.getListTrailingContainerSize());
               ripple({
                 rippleStartPosition: $clickCoordinates,
                 size: $containerSize,
@@ -195,12 +199,13 @@ export struct TwoLineList_Item {
             }.size(this.model2.getListContainerSize());
           }
           else {
-            Flex() {
+            Flex({ alignItems: ItemAlign.Center }) {
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListLeadingContent()).fontSize(this.model2.getListLeadingContentTextSize()).padding({ left: '10vp' });
+                Text(this.model.getListLeadingContent())
+                  .fontSize(this.model2.getListLeadingContentTextSize())
+                  .padding({ left: this.model2.getSpaceOnLeft() });
               }
               .size(this.model2.getListLeadingContainerSize())
-              .padding({ top: this.model2.getSpaceOnTop() });
               Flex({ alignItems: ItemAlign.Center }) {
                 Column() {
                   Text(this.model.getListLabel())
@@ -218,10 +223,12 @@ export struct TwoLineList_Item {
                     .textOverflow({ overflow: TextOverflow.Ellipsis })
                     .maxLines(1)
                 }.alignItems(HorizontalAlign.Start).padding({ right: this.model2.getListDataRightSpace() })
-              }.size(this.model2.getListDataContainerSize()).padding({ top: this.model2.getSpaceOnTop() });
+              }.size(this.model2.getListDataContainerSize());
               Flex({ alignItems: ItemAlign.Center }) {
-                Text(this.model.getListTrailingContent()).fontSize(this.model2.getListTrailingContentTextSize());
-              }.padding('5vp').padding({ top: this.model2.getSpaceOnTop() });
+                Text(this.model.getListTrailingContent())
+                  .fontSize(this.model2.getListTrailingContentTextSize())
+                  .padding({ right: this.model2.getSpaceOnRight() });
+              }.size(this.model2.getListTrailingContainerSize());
               ripple({
                 rippleStartPosition: $clickCoordinates,
                 size: $containerSize,

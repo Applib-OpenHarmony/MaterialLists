@@ -21,8 +21,6 @@ import { SingleLineListModel } from './listModels/listmodels';
 import { SingleLineList_item }  from './singleLineList'
 import { CommonGroupModel } from './listModels/commonGroupModel'
 import { NestedListItems } from './listUtilities/listclasses';
-import { ripple } from './animation/Ripple'
-import { CommonProperties } from './listUtilities/listCommonProperties'
 
 @Entry
 @Component
@@ -65,8 +63,11 @@ export struct NestedListGroup {
             }
           },
         )
-      }.divider({ strokeWidth: this.models.getDividerStrokeWidth(), color: this.models.getDividerColor() })
-      .visibility((this.models.getDivider() == true) ? Visibility.Visible : Visibility.Hidden)
+      }
+      .divider({
+        strokeWidth: (this.models.getDivider() == true) ? this.models.getDividerStrokeWidth() : 0,
+        color: (this.models.getDivider() == true) ? this.models.getDividerColor() : this.models.getBackGroundColor()
+      })
     }
   }
 }
