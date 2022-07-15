@@ -76,7 +76,10 @@ Common group model extends this class and used to get access to all these method
 | `  setMainDataFontColor(MainDataFontStyle:  FontStyle)`        | `CommonProperties`          |  sets font Style of Main Data  |
 | `  getSubDataFontStyle()`        | `FontStyle`          |  returns font Style of Sub Data  |
 | `  setSubDataFontStyle(SubDataFontStyle:  FontStyle)`        | `CommonProperties`          |  sets font Style of Sub Data  |
-
+| `  getSpaceOnLeft()`        | `string`          |  returns padding to left of screen  |
+| `  setSpaceOnLeft(space: string)`        | `CommonProperties`          |  sets padding to left of screen  |
+| `   getSpaceOnRight()`        | `string`          |  returns padding to right of screen  |
+| ` setSpaceOnRight(space: string)`        | `CommonProperties`          |  setspadding to right of screen  |
 ## ListType enum
 | Name     |  Description   
 | ------------- |  --------    |
